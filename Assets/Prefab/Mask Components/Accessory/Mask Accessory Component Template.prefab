@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2650732918815425006}
   - component: {fileID: 2452532196150747124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8942730724395853347}
   - component: {fileID: -5621219007188229272}
   - component: {fileID: 4478040823769182977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask Accessory Component Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
