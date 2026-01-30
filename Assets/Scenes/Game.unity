@@ -440,6 +440,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crafting.CraftingComponentSpawner
   SpawnPosition: {x: 0, y: -1}
+  ClampTop: 2
+  ClampBottom: -4
+  ClampLeft: -5
+  ClampRight: 5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
