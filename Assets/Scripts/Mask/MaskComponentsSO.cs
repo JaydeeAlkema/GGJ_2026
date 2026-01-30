@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using Enumerable = System.Linq.Enumerable;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Mask
 {
-	[CreateAssetMenu(fileName = "Mask Components", menuName = "ScriptableObjects/New Mask Components", order = 0)]
+	[CreateAssetMenu(fileName = "Mask Components", menuName = "ScriptableObjects/Mask Components", order = 0)]
 	public class MaskComponentsSO : ScriptableObject
 	{
 		[BoxGroup("Mask Components")]
-		[SerializeField] private List<MaskComponent> MaskComponents = new();
+		[SerializeField] private List<MaskComponentItem> MaskComponents = new();
 
-		public void AddMaskComponent(MaskComponent component)
+		public void AddMaskComponent(MaskComponentItem component)
 		{
 			if (MaskComponents.Contains(component))
 				return;
@@ -19,7 +22,7 @@ namespace Mask
 			MaskComponents.Add(component);
 		}
 
-		public void RemoveMaskComponent(MaskComponent component)
+		public void RemoveMaskComponent(MaskComponentItem component)
 		{
 			if (!MaskComponents.Contains(component))
 				return;
@@ -27,15 +30,42 @@ namespace Mask
 			MaskComponents.Remove(component);
 		}
 
-		public List<MaskComponent> GetMaskComponents()
+		public List<MaskComponentItem> GetMaskComponents()
 		{
 			return MaskComponents;
 		}
 
 		public List<IMaskComponent> GetMaskComponentsInterfaces()
 		{
-			List<IMaskComponent> interfaces = MaskComponents.Cast<IMaskComponent>().ToList();
-			return interfaces;
+			return Enumerable.ToList(Enumerable.Cast<IMaskComponent>(Enumerable.Select(MaskComponents, item => item.MaskComponent)));
 		}
+
+
+#if UNITY_EDITOR
+		private readonly List<MaskComponentItem> maskComponentsCopy = new();
+
+		private void OnValidate()
+		{
+			maskComponentsCopy.Clear();
+			maskComponentsCopy.AddRange(MaskComponents);
+
+			// subscribe to the unity editor entering and exiting playmode. So that once we exit, we reset
+			// back to the copied list.
+			EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+			EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+		}
+
+		private void OnPlayModeStateChanged(PlayModeStateChange state)
+		{
+			if (state is not PlayModeStateChange.ExitingPlayMode)
+				return;
+
+			if (!Enumerable.Any(maskComponentsCopy))
+				return;
+
+			MaskComponents.Clear();
+			MaskComponents.AddRange(maskComponentsCopy);
+		}
+#endif
 	}
 }

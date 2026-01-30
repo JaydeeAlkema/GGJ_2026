@@ -7,7 +7,7 @@ namespace Mask
 		Sprite GetVisuals();
 		void SetVisuals(Sprite sprite);
 
-		MaskTraits GetMaskTraits();
+		MaskTrait GetMaskTraits();
 
 		bool GetIsLocked();
 		void Lock();

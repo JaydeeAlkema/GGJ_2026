@@ -1,5 +1,8 @@
+using System;
 using NaughtyAttributes;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Mask
 {
@@ -7,9 +10,11 @@ namespace Mask
 	{
 		private static InputSystem_Actions _inputs;
 
-		[BoxGroup("Mask")]
-		[SerializeField] private MaskTraits MaskTraits;
+		[BoxGroup("References")]
+		[SerializeField] private SpriteRenderer SpriteRenderer;
 
+		[BoxGroup("Mask")]
+		[SerializeField] private MaskTrait Trait;
 		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
 
@@ -20,9 +25,27 @@ namespace Mask
 			_inputs ??= new InputSystem_Actions();
 		}
 
+		private void OnEnable()
+		{
+			_inputs.Player.Enable();
+			_inputs.Player.Click.performed += OnButtonClick;
+			_inputs.Player.Click.canceled += OnButtonRelease;
+		}
+		
+		private void OnButtonClick(InputAction.CallbackContext _)
+		{
+			
+		}
+		
+		private void OnButtonRelease(InputAction.CallbackContext _)
+		{
+			
+		}
+
 		public void SetVisuals(Sprite sprite)
 		{
 			Visuals = sprite;
+			SpriteRenderer.sprite = Visuals;
 		}
 
 		public Sprite GetVisuals()
@@ -30,9 +53,9 @@ namespace Mask
 			return Visuals;
 		}
 
-		public MaskTraits GetMaskTraits()
+		public MaskTrait GetMaskTraits()
 		{
-			return MaskTraits;
+			return Trait;
 		}
 
 		public bool GetIsLocked()

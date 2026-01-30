@@ -1,6 +1,6 @@
 ﻿namespace Mask
 {
-	public enum MaskTraits
+	public enum MaskTrait
 	{
 		None = 0,
 		Waterproof = 1,
