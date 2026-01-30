@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{1602437a-695a-4c68-8fd5-40044d975349}">
+		<property name="name">
+			<value>Tranquil</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{227da55d-eb3e-4b0a-9190-2a65a8faafeb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{227da55d-eb3e-4b0a-9190-2a65a8faafeb}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
