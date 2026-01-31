@@ -16,8 +16,6 @@ namespace UI
 		private void OnEnable()
 		{
 			CraftingComponentSpawner.OnCompletedMaskItemReady += CraftingComponentSpawner_OnCompletedMaskItemReady;
-
-			ToggleClientScreen();
 		}
 
 		private void OnDisable()
