@@ -111,7 +111,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{7ef2c436-a662-4dbc-bc25-fe79a55c29bd}">
 		<property name="volume">
-			<value>-14.5</value>
+			<value>-25.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 3</value>
@@ -143,8 +143,6 @@
 	<object class="MixerBusEffectChain" id="{97eb4115-4b5c-4dbd-a259-165ae9d66233}">
 		<relationship name="effects">
 			<destination>{2f9a8d9d-17cd-4cb2-8a05-d29227f9a12e}</destination>
-			<destination>{00bdedd7-b9b9-43e7-bdd8-8fc6594c64d3}</destination>
-			<destination>{e8c2cf8d-f247-4314-8ffd-7562663fbb76}</destination>
 			<destination>{b2a2d988-b40a-46a7-87be-853476a6cf4f}</destination>
 			<destination>{1d5a72c2-7a95-4cda-b2b3-55ec77f1cc94}</destination>
 			<destination>{2e27c458-3d01-4b02-aa57-3503112e87bb}</destination>
@@ -157,26 +155,11 @@
 			<destination>{4d5670d7-1b02-43c1-9495-28b0e1bd76e1}</destination>
 			<destination>{3e5cc402-dfb5-4fcc-9260-9794dc07af09}</destination>
 			<destination>{e0a81f70-ab5e-43e1-a40e-aef9e2519268}</destination>
+			<destination>{1d065ace-49d0-4ab0-a7be-7912ed7a094e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4d04ab81-1992-48ec-9bef-d6dd3c116516}" />
 	<object class="MixerBusFader" id="{2f9a8d9d-17cd-4cb2-8a05-d29227f9a12e}" />
-	<object class="ThreeEQEffect" id="{00bdedd7-b9b9-43e7-bdd8-8fc6594c64d3}">
-		<property name="lowGain">
-			<value>-7.5</value>
-		</property>
-		<property name="midGain">
-			<value>-4</value>
-		</property>
-		<property name="highGain">
-			<value>-14.5</value>
-		</property>
-	</object>
-	<object class="SFXReverbEffect" id="{e8c2cf8d-f247-4314-8ffd-7562663fbb76}">
-		<property name="decayTime">
-			<value>500</value>
-		</property>
-	</object>
 	<object class="PitchShifterEffect" id="{b2a2d988-b40a-46a7-87be-853476a6cf4f}">
 		<property name="pitch">
 			<value>0.799999952</value>
@@ -200,10 +183,10 @@
 			<value>-3</value>
 		</property>
 		<property name="midGain">
-			<value>-3</value>
+			<value>-22</value>
 		</property>
 		<property name="highGain">
-			<value>-15.5</value>
+			<value>-6.5</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{e0a81f70-ab5e-43e1-a40e-aef9e2519268}">
@@ -215,6 +198,14 @@
 		</property>
 		<property name="wetLevel">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="ChorusEffect" id="{1d065ace-49d0-4ab0-a7be-7912ed7a094e}">
+		<property name="rate">
+			<value>0.620000005</value>
+		</property>
+		<property name="depth">
+			<value>58.5</value>
 		</property>
 	</object>
 	<object class="LFOModulator" id="{6c0e76d7-88e3-47f1-9a49-3a139e24d446}">

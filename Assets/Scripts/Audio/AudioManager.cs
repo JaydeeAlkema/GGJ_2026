@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 using FMODUnity;
 using FMOD.Studio;
-using Unity.VisualScripting;
 
 public class AudioManager : MonoBehaviour {
 
@@ -202,6 +201,22 @@ public class AudioManager : MonoBehaviour {
         InitializeVolumeSettings();
     }
 
-    private void Start() => i_test = PlayInstance(test, transform.position, "Chaos", 0.7f, "Tranquil", 0.3f);
+    private void Start() {
+        i_test = PlayInstance(test, transform.position);
+        RuntimeManager.StudioSystem.setParameterByName("Charm", 0.1f);
+        RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0.1f);
+    }
+
+    /*
+     * 
+        [SerializeField] FMODUnity.EventReference s_Select;
+        AudioManager.Instance.PlaySound(s_Select);
+
+        [SerializeField] FMODUnity.EventReference s_Equip;
+        FMOD.Studio.EventInstance i_Equip;
+        i_Equip = AudioManager.Instance.PlayInstance(s_Equip, transform.position);
+
+     *
+     */
 
 }
