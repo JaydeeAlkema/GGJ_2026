@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1984103870320725310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5202715810167552364}
+  - component: {fileID: 581860768332815176}
+  m_Layer: 0
+  m_Name: Mask Components Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5202715810167552364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984103870320725310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &581860768332815176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984103870320725310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c612526d9342e38008eecef22a3565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mask.MaskComponentsInventory
+  MaskComponents:
+  - MaskComponent: {fileID: 6334465406012045459, guid: 1723c4e84dd40f34a885862a55f973ec, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 7662419608634055641, guid: 3f3c9778cd4ed264ea1e284272b59ec1, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3634240178412171397, guid: b5c8057f2d299004f86c2b7927da48ac, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 2318362264933770039, guid: 7fad6a52552b4454387c567a6e4de2e3, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: f4a66aca8bbdf084cb19ee3cb33521a7, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 13c6c9ff5edfca9469b586c53fcf85dc, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 8384093085986803642, guid: 53dbac9e33372a24097bb9e792f79aa2, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 1929020580501633982, guid: 44b0b839cae4fec40bd96af5fccef4f5, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 39a212627c4de89408ba02f6b64c6757, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 240035854ab7d8e459a8463a83cbf8c0, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 408491219046343001, guid: 3d850ff2cadca7547bc26b27a386f250, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 5610073524180292959, guid: 80273e9777d6d6e45bb5cf4355e86a87, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 15f69a416db79e04ca08d21ffa361342, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 6d08b0bd34d19b445b4a36d56399b81d, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 407543464416319268, guid: 647af02015ea3fe4880ae483d020995d, type: 3}
+    ComponentType: 0
+    Amount: -1
+  - MaskComponent: {fileID: 4945463617528118873, guid: 996d9d0c9fd9b5b45b562ab5c1e1be07, type: 3}
+    ComponentType: 0
+    Amount: -1

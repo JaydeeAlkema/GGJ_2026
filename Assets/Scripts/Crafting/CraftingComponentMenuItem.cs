@@ -49,6 +49,11 @@ namespace Crafting
 		{
 			_maskComponentPrefab = prefab;
 			ComponentImage.sprite = prefab.GetVisuals();
+
+			bool componentIsBase = prefab.GetMaskComponentType() is MaskComponentType.Base;
+			ComponentTraitImage.enabled = !componentIsBase;
+			ComponentCountText.enabled = !componentIsBase;
+
 			ComponentTraitImage.sprite = TraitIconsDatabase.GetIconForTrait(prefab.GetMaskTraits());
 			ComponentCountText.text = amount.ToString();
 		}
