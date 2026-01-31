@@ -1,22 +1,48 @@
-﻿namespace StateMachine.States
+﻿using Customer;
+
+namespace StateMachine.States
 {
 	public class CustomerDialogueState : StateBase
 	{
+		private float _counter = 3f;
+		private bool _canCountDown;
+
 		public override void Enter()
 		{
 			base.Enter();
 
-			// Test to skip this state.
-			this.IsComplete = true;
+			_counter = 3f;
+			_canCountDown = false;
+
+			CustomerQueueManager.CustomerGreeted += OnCustomerGreeted;
 		}
 
-		public override void Tick(float deltaTime) { }
+		public override void Tick(float deltaTime)
+		{
+			if (!_canCountDown)
+				return;
 
-		public override void Exit() { }
+			_counter -= deltaTime;
+			if (_counter <= 0f)
+			{
+				this.IsComplete = true;
+			}
+		}
+
+		public override void Exit()
+		{
+			CustomerQueueManager.CustomerGreeted -= OnCustomerGreeted;
+		}
 
 		public override StateId GetNextStateId()
 		{
 			return StateId.Crafting;
+		}
+
+		private void OnCustomerGreeted(Customer.Customer _)
+		{
+			CustomerQueueManager.CustomerGreeted -= OnCustomerGreeted;
+			_canCountDown = true;
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using Mask;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Snapshotter
@@ -8,7 +9,7 @@ namespace Snapshotter
 		[BoxGroup("References")]
 		[SerializeField] private Camera CaptureCamera;
 
-		[BoxGroup("Settings")]
+		[BoxGroup("References")]
 		[SerializeField] private Transform ContentRoot;
 
 		[BoxGroup("Settings")]
@@ -20,41 +21,62 @@ namespace Snapshotter
 			if (CaptureCamera == null || ContentRoot == null)
 				return null;
 
-			if (!TryCalculateBounds(out Bounds bounds))
+			if (!TryGetBaseMask(out MaskComponent baseMask))
 				return null;
 
-			PositionCamera(bounds);
+			if (!TryCalculateContentBounds(out Bounds contentBounds))
+				return null;
+
+			PositionCamera(baseMask.transform.position, contentBounds);
 			return CaptureSprite();
 		}
 
-		private bool TryCalculateBounds(out Bounds bounds)
+		private bool TryGetBaseMask(out MaskComponent baseMask)
 		{
-			Renderer[] renderers = ContentRoot.GetComponentsInChildren<Renderer>();
+			baseMask = null;
+
+			MaskComponent[] components = ContentRoot.GetComponentsInChildren<MaskComponent>();
+			foreach (MaskComponent component in components)
+			{
+				if (component.GetMaskComponentType() != MaskComponentType.Base)
+					continue;
+
+				baseMask = component;
+				return true;
+			}
+
+			return false;
+		}
+
+		private bool TryCalculateContentBounds(out Bounds bounds)
+		{
 			bounds = default;
 
-			if (renderers.Length == 0)
+			SpriteRenderer[] sprites =
+				ContentRoot.GetComponentsInChildren<SpriteRenderer>();
+
+			if (sprites.Length == 0)
 				return false;
 
-			bounds = renderers[0].bounds;
-			for (int i = 1; i < renderers.Length; i++)
+			bounds = sprites[0].bounds;
+			for (int i = 1; i < sprites.Length; i++)
 			{
-				bounds.Encapsulate(renderers[i].bounds);
+				bounds.Encapsulate(sprites[i].bounds);
 			}
 
 			return true;
 		}
 
-		private void PositionCamera(Bounds bounds)
+
+		private void PositionCamera(Vector3 baseCenter, Bounds contentBounds)
 		{
-			Vector3 center = bounds.center;
+			Vector3 cameraPosition = baseCenter;
+			cameraPosition.z = CaptureCamera.transform.position.z;
 
-			// Push camera in front of content
-			center.z = bounds.min.z - 10f;
+			CaptureCamera.transform.position = cameraPosition;
 
-			CaptureCamera.transform.position = center;
-
-			float verticalSize = bounds.extents.y + Padding;
-			float horizontalSize = (bounds.extents.x + Padding) / CaptureCamera.aspect;
+			float verticalSize = contentBounds.extents.y + Padding;
+			float horizontalSize = (contentBounds.extents.x + Padding) / CaptureCamera.aspect;
 
 			CaptureCamera.orthographicSize = Mathf.Max(verticalSize, horizontalSize);
 		}

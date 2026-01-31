@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CompletedMask;
+using Customer;
 using Mask;
 using NaughtyAttributes;
 using Snapshotter;
@@ -45,6 +46,9 @@ namespace Crafting
 		[BoxGroup("Runtime (Read Only)")]
 		[ReadOnly]
 		[SerializeField] private float ClampRight;
+
+		[BoxGroup("References")]
+		[SerializeField] private CustomerQueueManager CustomerQueueManager;
 
 		private readonly List<MaskComponent> _spawnedComponents = new();
 		private MaskSnapshotter _maskSnapshotter;
@@ -122,6 +126,7 @@ namespace Crafting
 
 			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
 			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
+			CustomerQueueManager.SetCurrentCustomerMaskItem(completedMaskItem);
 
 			// Find all the components in the database, and remove them from the database.
 			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))

@@ -105,7 +105,7 @@ namespace Mask
 				return;
 
 			int orderChange = (int)obj.ReadValue<float>();
-			orderChange = Mathf.Min(0, orderChange);
+			orderChange = Mathf.Max(0, orderChange);
 			SpriteRenderer.sortingOrder += orderChange;
 		}
 
