@@ -5,7 +5,7 @@
 			<value>Emotions</value>
 		</property>
 		<relationship name="folder">
-			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
+			<destination>{7b22a647-1afe-4f50-be8c-84e4c006d164}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{d0f76c47-336d-4107-88e0-6103e992915e}</destination>
@@ -23,9 +23,6 @@
 			<value>Charm</value>
 			<value>Fright</value>
 			<value>Tranquil</value>
-		</property>
-		<property name="isGlobal">
-			<value>true</value>
 		</property>
 		<property name="initialValue">
 			<value>3</value>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="ParameterPreset" id="{5654b8f3-afaf-4f8a-88d6-9263e6846c71}">
+	<object class="ParameterPreset" id="{31337edf-8611-40ba-8862-d0b3653ba869}">
 		<property name="name">
-			<value>Fright</value>
+			<value>Charm</value>
 		</property>
 		<relationship name="folder">
-			<destination>{7b22a647-1afe-4f50-be8c-84e4c006d164}</destination>
+			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{3592e841-fcc8-4366-8140-e85a68ed6451}</destination>
+			<destination>{78470b5f-1ebf-426a-a1c1-3b79a1063dc9}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{3592e841-fcc8-4366-8140-e85a68ed6451}">
+	<object class="GameParameter" id="{78470b5f-1ebf-426a-a1c1-3b79a1063dc9}">
 		<property name="initialValue">
 			<value>0</value>
 		</property>

@@ -288,6 +288,9 @@
 		<relationship name="fadeOutCurve">
 			<destination>{45ae7749-8709-4fbb-9f6e-a3c5ff025a48}</destination>
 		</relationship>
+		<relationship name="parameters">
+			<destination>{12559284-b37e-4036-b60a-dba1e68d8710}</destination>
+		</relationship>
 		<relationship name="event">
 			<destination>{03298e23-c1d3-42ce-84fb-f1c689d39277}</destination>
 		</relationship>
@@ -590,6 +593,11 @@
 		</relationship>
 		<relationship name="endPoint">
 			<destination>{ae169507-ef3b-4ca4-b657-e87cc44faab6}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProperty" id="{12559284-b37e-4036-b60a-dba1e68d8710}">
+		<relationship name="parameter">
+			<destination>{cf21a74a-2041-4031-be29-ba9855d6c4bd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{98a1343f-1ecb-470c-b47d-c415f4198d24}">
