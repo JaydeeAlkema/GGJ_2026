@@ -9,20 +9,41 @@ using UnityEngine;
 
 namespace Crafting
 {
+	[ExecuteAlways]
 	public class CraftingComponentSpawner : MonoBehaviour
 	{
 		public static event Action<CompletedMaskItem> OnCompletedMaskItemReady;
 
-		[BoxGroup("Settings")]
-		[SerializeField] private Vector2 SpawnPosition = new(0, 0);
+		[BoxGroup("Reference Area (16:9)")]
+		[SerializeField] private Vector2 ReferenceSize = new(16f, 9f);
 
-		[BoxGroup("Settings")]
+		[BoxGroup("Reference Area (16:9)")]
+		[SerializeField]
+		private Rect NormalizedClampRect = new(
+			0.1f,
+			0.1f,
+			0.8f,
+			0.8f
+		);
+
+		[BoxGroup("Spawn Parent")]
+		[SerializeField] private Transform SpawnParent;
+
+		[BoxGroup("Runtime (Read Only)")]
+		[SerializeField][ReadOnly]
+		private Vector2 SpawnPosition;
+
+		[BoxGroup("Runtime (Read Only)")]
+		[ReadOnly]
 		[SerializeField] private float ClampTop;
-		[BoxGroup("Settings")]
+		[BoxGroup("Runtime (Read Only)")]
+		[ReadOnly]
 		[SerializeField] private float ClampBottom;
-		[BoxGroup("Settings")]
+		[BoxGroup("Runtime (Read Only)")]
+		[ReadOnly]
 		[SerializeField] private float ClampLeft;
-		[BoxGroup("Settings")]
+		[BoxGroup("Runtime (Read Only)")]
+		[ReadOnly]
 		[SerializeField] private float ClampRight;
 
 		private readonly List<MaskComponent> _spawnedComponents = new();
@@ -30,11 +51,14 @@ namespace Crafting
 
 		private void Awake()
 		{
-			_maskSnapshotter = FindObjectsByType<MaskSnapshotter>(FindObjectsSortMode.None).First();
+			_maskSnapshotter = FindObjectsByType<MaskSnapshotter>(FindObjectsSortMode.None).FirstOrDefault();
+			UpdateClampArea();
 		}
 
 		private void OnEnable()
 		{
+			UpdateClampArea();
+
 			CraftingComponentMenuItem.OnComponentMenuItemClicked += CraftingComponentMenuItem_OnComponentMenuItemClicked;
 			CraftingComponentMenu.OnMaskCompleted += CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged += CraftingComponentMenu_OnCraftingStageChanged;
@@ -49,9 +73,59 @@ namespace Crafting
 			Cleanup();
 		}
 
+		private void OnValidate()
+		{
+			UpdateClampArea();
+		}
+
+		private void Update()
+		{
+#if UNITY_EDITOR
+			UpdateClampArea();
+#endif
+		}
+
+		private void UpdateClampArea()
+		{
+			Camera cam = Camera.main;
+			if (cam == null || !cam.orthographic)
+				return;
+
+			float screenAspect = cam.aspect;
+			float referenceAspect = ReferenceSize.x / ReferenceSize.y;
+
+			float worldHeight = cam.orthographicSize * 2f;
+			float worldWidth = worldHeight * screenAspect;
+
+			float usableWidth = worldWidth;
+			float usableHeight = worldHeight;
+
+			if (screenAspect > referenceAspect)
+			{
+				usableWidth = worldHeight * referenceAspect;
+			}
+			else
+			{
+				usableHeight = worldWidth / referenceAspect;
+			}
+
+			float left = -usableWidth * 0.5f;
+			float bottom = -usableHeight * 0.5f;
+
+			ClampLeft = left + usableWidth * NormalizedClampRect.xMin;
+			ClampRight = left + usableWidth * NormalizedClampRect.xMax;
+			ClampBottom = bottom + usableHeight * NormalizedClampRect.yMin;
+			ClampTop = bottom + usableHeight * NormalizedClampRect.yMax;
+
+			SpawnPosition = new Vector2(
+				(ClampLeft + ClampRight) * 0.5f,
+				(ClampBottom + ClampTop) * 0.5f
+			);
+		}
+
 		private void CraftingComponentMenuItem_OnComponentMenuItemClicked(MaskComponent componentPrefab)
 		{
-			MaskComponent newComponent = Instantiate(componentPrefab, SpawnPosition, Quaternion.identity);
+			MaskComponent newComponent = Instantiate(componentPrefab, SpawnPosition, Quaternion.identity, SpawnParent);
 			newComponent.SetVisuals(newComponent.GetVisuals());
 			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
 			_spawnedComponents.Add(newComponent);
@@ -59,8 +133,7 @@ namespace Crafting
 
 		private void CraftingComponentMenu_OnCraftingStageChanged()
 		{
-			// loop through spawned components and lock them.
-			foreach (MaskComponent component in _spawnedComponents.Where(component => component != null))
+			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
 			{
 				component.Lock();
 			}
@@ -68,22 +141,28 @@ namespace Crafting
 
 		private void CraftingComponentMenu_OnMaskCompleted()
 		{
-			// Make a completed mask item from the spawned components
-			List<MaskTrait> maskTraits = new(_spawnedComponents.Select(x => x.GetMaskTraits()).ToList());
-			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
+			if (_maskSnapshotter == null)
+				return;
 
+			List<MaskTrait> maskTraits = new(
+				_spawnedComponents
+					.Where(x => x != null)
+					.Select(x => x.GetMaskTraits())
+					.ToList()
+			);
+
+			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
 			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
 
 			OnCompletedMaskItemReady?.Invoke(completedMaskItem);
-
 			Cleanup();
 		}
 
 		private void Cleanup()
 		{
-			foreach (MaskComponent component in _spawnedComponents.Where(component => component != null))
+			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
 			{
-				Destroy(component.gameObject);
+				DestroyImmediate(component.gameObject);
 			}
 
 			_spawnedComponents.Clear();
@@ -99,6 +178,7 @@ namespace Crafting
 			Vector3 topRight = new(ClampRight, ClampTop, 0);
 			Vector3 bottomLeft = new(ClampLeft, ClampBottom, 0);
 			Vector3 bottomRight = new(ClampRight, ClampBottom, 0);
+
 			Gizmos.DrawLine(topLeft, topRight);
 			Gizmos.DrawLine(topRight, bottomRight);
 			Gizmos.DrawLine(bottomRight, bottomLeft);
