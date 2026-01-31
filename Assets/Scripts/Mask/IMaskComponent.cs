@@ -10,6 +10,7 @@ namespace Mask
 		void SetClampArea(float clampTop, float clampBottom, float clampLeft, float clampRight);
 
 		MaskTrait GetMaskTraits();
+		MaskComponentType GetMaskComponentType();
 
 		bool GetIsLocked();
 		void Lock();

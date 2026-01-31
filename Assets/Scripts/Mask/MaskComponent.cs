@@ -14,6 +14,8 @@ namespace Mask
 		[BoxGroup("Mask")]
 		[SerializeField] private MaskTrait Trait;
 		[BoxGroup("Mask")]
+		[SerializeField] private MaskComponentType ComponentType;
+		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
 
 		private bool _isLocked;
@@ -88,6 +90,11 @@ namespace Mask
 		public MaskTrait GetMaskTraits()
 		{
 			return Trait;
+		}
+
+		public MaskComponentType GetMaskComponentType()
+		{
+			return ComponentType;
 		}
 
 		public bool GetIsLocked()

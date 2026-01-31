@@ -1,4 +1,5 @@
-﻿using Mask;
+﻿using System.Collections.Generic;
+using Mask;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace Crafting
 		[BoxGroup("References")]
 		[SerializeField] private Transform MenuContentParent;
 
+		private int _craftingStageIndex;
+
 		private void OnEnable()
 		{
 			// Not performant at all. But who cares. Not me ¯\_(ツ)_/¯ ~Jaydee
@@ -22,7 +25,14 @@ namespace Crafting
 
 		private void PopulateMenu()
 		{
-			foreach (IMaskComponent maskComponent in MaskComponentsDatabase.GetMaskComponentsInterfaces())
+			List<IMaskComponent> maskComponentsInterfaces = MaskComponentsDatabase.GetMaskComponentsInterfaces();
+			MaskComponentType craftingStageType = (MaskComponentType)_craftingStageIndex;
+			for (int i = 0; i < maskComponentsInterfaces.Count; i++)
+			{
+				// int maskComponentTypeIndex = (int)maskComponentsInterfaces[i].();
+			}
+
+			foreach (IMaskComponent maskComponent in maskComponentsInterfaces)
 			{
 				CraftingComponentMenuItem menuItem = Instantiate(CraftingComponentMenuItemPrefab, MenuContentParent);
 				menuItem.Initialize((MaskComponent)maskComponent);
@@ -35,6 +45,13 @@ namespace Crafting
 			{
 				Destroy(child.gameObject);
 			}
+		}
+
+		public void SubmitButton()
+		{
+			_craftingStageIndex++;
+			DepopulateMenu();
+			PopulateMenu();
 		}
 	}
 }
