@@ -70,16 +70,32 @@ namespace Snapshotter
 
 		private void PositionCamera(Vector3 baseCenter, Bounds contentBounds)
 		{
-			Vector3 cameraPosition = baseCenter;
-			cameraPosition.z = CaptureCamera.transform.position.z;
+			Vector3 camPos = baseCenter;
+			camPos.z = CaptureCamera.transform.position.z;
+			CaptureCamera.transform.position = camPos;
 
-			CaptureCamera.transform.position = cameraPosition;
+			float maxHorizontal = Mathf.Max(
+				Mathf.Abs(contentBounds.min.x - baseCenter.x),
+				Mathf.Abs(contentBounds.max.x - baseCenter.x)
+			);
 
-			float verticalSize = contentBounds.extents.y + Padding;
-			float horizontalSize = (contentBounds.extents.x + Padding) / CaptureCamera.aspect;
+			float maxVertical = Mathf.Max(
+				Mathf.Abs(contentBounds.min.y - baseCenter.y),
+				Mathf.Abs(contentBounds.max.y - baseCenter.y)
+			);
 
-			CaptureCamera.orthographicSize = Mathf.Max(verticalSize, horizontalSize);
+			maxHorizontal += Padding;
+			maxVertical += Padding;
+
+			float orthoSizeFromVertical = maxVertical;
+			float orthoSizeFromHorizontal = maxHorizontal / CaptureCamera.aspect;
+
+			CaptureCamera.orthographicSize = Mathf.Max(
+				orthoSizeFromVertical,
+				orthoSizeFromHorizontal
+			);
 		}
+
 
 		private Sprite CaptureSprite()
 		{
