@@ -17,6 +17,8 @@ namespace Mask
 		[SerializeField] private MaskComponentType ComponentType;
 		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
+		[BoxGroup("Mask")]
+		[SerializeField] private float VisualsSize;
 
 		public SpriteRenderer GetSpriteRenderer()
 		{
@@ -68,6 +70,7 @@ namespace Mask
 		public void SetVisuals(Sprite sprite)
 		{
 			Visuals = sprite;
+			SpriteRenderer.gameObject.transform.localScale = new Vector3(VisualsSize, VisualsSize, VisualsSize);
 			SpriteRenderer.sprite = Visuals;
 		}
 

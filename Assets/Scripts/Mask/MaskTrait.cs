@@ -3,9 +3,9 @@
 	public enum MaskTrait
 	{
 		None = 0,
-		Waterproof = 1,
-		Insulated = 2,
-		Breathable = 3,
-		FireResistant = 4,
+		Tranquil = 1,
+		Chaotic = 2,
+		Charming = 3,
+		Frightening = 4,
 	}
 }
