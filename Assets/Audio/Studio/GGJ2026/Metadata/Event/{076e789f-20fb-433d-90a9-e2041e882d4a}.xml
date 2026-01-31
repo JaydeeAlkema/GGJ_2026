@@ -56,7 +56,11 @@
 			<destination>{a0f3faae-5985-4b73-b58b-f6912fa13ce2}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{dc8cffaa-68c6-4b69-afa5-5b3a59ae0b36}" />
+	<object class="EventAutomatableProperties" id="{dc8cffaa-68c6-4b69-afa5-5b3a59ae0b36}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{d8d592ce-3408-404f-81ed-72ba0bfc7a31}" />
 	<object class="GroupTrack" id="{bd73effa-a4ae-4674-86da-4aba28698ba8}">
 		<relationship name="modules">
@@ -95,7 +99,7 @@
 	<object class="MixerBusPanner" id="{dc39d758-4d72-4ab5-96a7-bb1058154f44}" />
 	<object class="SingleSound" id="{b2591bab-d111-471d-8d65-e1882e20129e}">
 		<property name="start">
-			<value>4.1971392051610783</value>
+			<value>4.0137208218538305</value>
 		</property>
 		<property name="length">
 			<value>9.1046809407732301</value>
@@ -140,7 +144,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>13.301820145934308</value>
+			<value>13.118401762627061</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{6c026ddb-c0f3-46f0-a9ea-59ccab5e66bf}</destination>
@@ -208,7 +212,7 @@
 	</object>
 	<object class="AutomationPoint" id="{fe4fb5ec-5117-4f15-bbd3-ad66eed61c5c}">
 		<property name="position">
-			<value>4.1971392051610783</value>
+			<value>4.0137208218538305</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -219,7 +223,7 @@
 	</object>
 	<object class="AutomationPoint" id="{8872352d-e4e8-4acf-901c-4413cbe2f857}">
 		<property name="position">
-			<value>13.301820145934308</value>
+			<value>13.118401762627059</value>
 		</property>
 		<property name="value">
 			<value>1</value>
