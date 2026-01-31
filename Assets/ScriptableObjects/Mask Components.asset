@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: Mask Components
   m_EditorClassIdentifier: Assembly-CSharp::Mask.MaskComponentsSO
   MaskComponents:
-  - {fileID: -5621219007188229272, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
-  - {fileID: 6334465406012045459, guid: 1723c4e84dd40f34a885862a55f973ec, type: 3}
-  - {fileID: 3810866647688532920, guid: f4a66aca8bbdf084cb19ee3cb33521a7, type: 3}
-  - {fileID: 3810866647688532920, guid: 13c6c9ff5edfca9469b586c53fcf85dc, type: 3}
-  - {fileID: 3810866647688532920, guid: 39a212627c4de89408ba02f6b64c6757, type: 3}
-  - {fileID: 3810866647688532920, guid: 240035854ab7d8e459a8463a83cbf8c0, type: 3}
-  - {fileID: 3810866647688532920, guid: 15f69a416db79e04ca08d21ffa361342, type: 3}
-  - {fileID: 3810866647688532920, guid: 6d08b0bd34d19b445b4a36d56399b81d, type: 3}
+  - MaskComponent: {fileID: 6334465406012045459, guid: 1723c4e84dd40f34a885862a55f973ec, type: 3}
+    ComponentType: 0
+    Amount: 1
+  - MaskComponent: {fileID: 3810866647688532920, guid: f4a66aca8bbdf084cb19ee3cb33521a7, type: 3}
+    ComponentType: 0
+    Amount: 1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 39a212627c4de89408ba02f6b64c6757, type: 3}
+    ComponentType: 0
+    Amount: 1
+  - MaskComponent: {fileID: 3810866647688532920, guid: 15f69a416db79e04ca08d21ffa361342, type: 3}
+    ComponentType: 0
+    Amount: 1
+  - MaskComponent: {fileID: -5621219007188229272, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
+    ComponentType: 1
+    Amount: 3

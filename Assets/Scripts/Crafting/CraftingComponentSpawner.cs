@@ -129,6 +129,7 @@ namespace Crafting
 			newComponent.SetVisuals(newComponent.GetVisuals());
 			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
 			_spawnedComponents.Add(newComponent);
+			MaskComponentsInventory.Instance.RemoveMaskComponent(componentPrefab);
 		}
 
 		private void CraftingComponentMenu_OnCraftingStageChanged()
@@ -153,6 +154,12 @@ namespace Crafting
 
 			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
 			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
+
+			// Find all the components in the database, and remove them from the database.
+			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
+			{
+				MaskComponentsInventory.Instance.RemoveMaskComponent(component);
+			}
 
 			OnCompletedMaskItemReady?.Invoke(completedMaskItem);
 			Cleanup();
