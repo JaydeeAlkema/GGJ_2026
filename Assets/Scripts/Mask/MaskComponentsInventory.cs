@@ -133,6 +133,18 @@ namespace Mask
 				entry.MaskComponent.SetMaskTraits(randomTrait);
 			}
 		}
+
+		[Button]
+		private void RemoveNullReferences()
+		{
+			for (int i = MaskComponents.Count - 1; i >= 0; i--)
+			{
+				if (MaskComponents[i].MaskComponent != null)
+					continue;
+
+				MaskComponents.RemoveAt(i);
+			}
+		}
 #endif
 	}
 }
