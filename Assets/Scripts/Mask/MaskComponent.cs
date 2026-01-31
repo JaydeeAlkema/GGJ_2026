@@ -82,6 +82,11 @@ namespace Mask
 			_clampRight = clampRight;
 		}
 
+		public void SetMaskTraits(MaskTrait trait)
+		{
+			Trait = trait;
+		}
+
 		public Sprite GetVisuals()
 		{
 			return Visuals;

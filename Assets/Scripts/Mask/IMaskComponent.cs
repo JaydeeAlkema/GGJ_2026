@@ -9,6 +9,7 @@ namespace Mask
 
 		void SetClampArea(float clampTop, float clampBottom, float clampLeft, float clampRight);
 
+		void SetMaskTraits(MaskTrait trait);
 		MaskTrait GetMaskTraits();
 		MaskComponentType GetMaskComponentType();
 

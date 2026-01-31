@@ -48,7 +48,7 @@ namespace Crafting
 			{
 				// Remove all components that are not of the same type as the stage.
 				// Also remove all components that have an amount of zero.
-				if (maskComponents[i].ComponentType == craftingStageType && maskComponents[i].Amount > 0)
+				if (maskComponents[i].ComponentType == craftingStageType && (maskComponents[i].Amount > 0 || maskComponents[i].Amount == -1))
 					continue;
 
 				maskComponents.RemoveAt(i);

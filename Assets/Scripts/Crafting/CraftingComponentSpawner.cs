@@ -129,6 +129,10 @@ namespace Crafting
 			newComponent.SetVisuals(newComponent.GetVisuals());
 			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
 			_spawnedComponents.Add(newComponent);
+
+			if (newComponent.GetMaskComponentType() is MaskComponentType.Base)
+				return;
+
 			MaskComponentsInventory.Instance.RemoveMaskComponent(componentPrefab);
 		}
 

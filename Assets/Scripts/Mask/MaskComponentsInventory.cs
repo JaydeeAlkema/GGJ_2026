@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Mask
 {
@@ -63,5 +65,74 @@ namespace Mask
 		{
 			return MaskComponents;
 		}
+
+#if UNITY_EDITOR
+		[Button]
+		private void AddOneAmountToAllComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents)
+			{
+				entry.Amount++;
+			}
+		}
+
+		[Button]
+		private void RemoveOneAmountFromAllComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents)
+			{
+				entry.Amount = Mathf.Max(0, entry.Amount - 1);
+			}
+		}
+
+		[Button]
+		private void AddOneAmountToAllBaseComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Base))
+			{
+				entry.Amount++;
+			}
+		}
+
+		[Button]
+		private void RemoveOneAmountFromAllBaseComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Base))
+			{
+				entry.Amount = Mathf.Max(0, entry.Amount - 1);
+			}
+		}
+
+		[Button]
+		private void AddOneAmountToAllAccessoryComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Accessory))
+			{
+				entry.Amount++;
+			}
+		}
+
+		[Button]
+		private void RemoveOneAmountFromAllAccessoryComponents()
+		{
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Accessory))
+			{
+				entry.Amount = Mathf.Max(0, entry.Amount - 1);
+			}
+		}
+
+		[Button]
+		private void RandomizeAllAccessoryComponentTypes()
+		{
+			Array traitValues = Enum.GetValues(typeof(MaskTrait));
+			Random random = new();
+
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Accessory))
+			{
+				MaskTrait randomTrait = (MaskTrait)traitValues.GetValue(random.Next(traitValues.Length));
+				entry.MaskComponent.SetMaskTraits(randomTrait);
+			}
+		}
+#endif
 	}
 }
