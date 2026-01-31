@@ -72,6 +72,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer_Frightening_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: NeutralTraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'NeutralTraits.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'NeutralTraits.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'DislikedTraits.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'PreferredTraits.Array.data[0]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8600975936039797506, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -86,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600975936039797506, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

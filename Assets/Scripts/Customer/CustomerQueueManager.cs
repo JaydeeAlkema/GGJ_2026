@@ -5,6 +5,7 @@ using CompletedMask;
 using NaughtyAttributes;
 using StateMachine.States;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Customer
 {
@@ -18,7 +19,7 @@ namespace Customer
 		[SerializeField] private float DistanceBetweenCustomers;
 
 		[BoxGroup("References")]
-		[SerializeField] private Customer CustomerPrefab;
+		[SerializeField] private Customer[] CustomerPrefabs;
 		[BoxGroup("References")]
 		[SerializeField] private Transform SpawnPoint;
 
@@ -67,7 +68,7 @@ namespace Customer
 		{
 			for (int i = 0; i < CustomersToSpawn; i++)
 			{
-				Customer newCustomerGo = Instantiate(CustomerPrefab, SpawnPoint.position, Quaternion.identity, SpawnPoint);
+				Customer newCustomerGo = Instantiate(CustomerPrefabs[Random.Range(0, CustomerPrefabs.Length)], SpawnPoint.position, Quaternion.identity, SpawnPoint);
 				newCustomerGo.transform.position = new Vector3(SpawnPoint.position.x + i * DistanceBetweenCustomers, SpawnPoint.position.y, SpawnPoint.position.z);
 				newCustomerGo.HideSpeechBubble();
 				SpawnedCustomers.Add(newCustomerGo);
