@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Testing")]
     [SerializeField] private EventReference test;
+    EventInstance i_test;
 
     #region Singleton Logic
 
@@ -115,6 +116,42 @@ public class AudioManager : MonoBehaviour {
         return instance;
     }
 
+    public EventInstance PlayInstance(
+    EventReference sfx,
+    Vector3 eventPosition,
+
+    string customSheet = null,
+    float customSheetIntensity = 0,
+
+    string customSheet2 = null,
+    float customSheetIntensity2 = 0,
+
+    string customSheet3 = null,
+    float customSheetIntensity3 = 0,    
+
+    string customSheet4 = null,
+    float customSheetIntensity4 = 0
+    ) {
+        if (!sfx.IsNull) {
+            EventInstance instance = CreateInstance(sfx, eventPosition);
+
+            if (customSheet != null) instance.setParameterByName(customSheet, customSheetIntensity);
+            if (customSheet2 != null) instance.setParameterByName(customSheet2, customSheetIntensity2);
+            if (customSheet3 != null) instance.setParameterByName(customSheet3, customSheetIntensity3);
+            if (customSheet4 != null) instance.setParameterByName(customSheet4, customSheetIntensity4);
+
+            instance.start();
+            instance.release();
+            return instance;
+        }
+
+        else {
+            Debug.Log("Audio source missing");
+            return default;
+        }
+    }
+
+
     public EventInstance CreateInstance(EventReference audio, Vector3 eventPosition) {
         if (audio.IsNull) Debug.Log("Audio source missing: " + audio.Path);
         EventInstance instance = RuntimeManager.CreateInstance(audio);
@@ -164,5 +201,7 @@ public class AudioManager : MonoBehaviour {
         InitializeBusses();
         InitializeVolumeSettings();
     }
+
+    private void Start() => i_test = PlayInstance(test, transform.position, "Chaos", 0.7f, "Tranquil", 0.3f);
 
 }

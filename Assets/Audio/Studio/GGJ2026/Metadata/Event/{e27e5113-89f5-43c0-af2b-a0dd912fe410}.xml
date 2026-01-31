@@ -147,6 +147,7 @@
 			<destination>{e8c2cf8d-f247-4314-8ffd-7562663fbb76}</destination>
 			<destination>{b2a2d988-b40a-46a7-87be-853476a6cf4f}</destination>
 			<destination>{1d5a72c2-7a95-4cda-b2b3-55ec77f1cc94}</destination>
+			<destination>{2e27c458-3d01-4b02-aa57-3503112e87bb}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e4119b0d-d47d-4b61-9369-ef92e485e6fc}" />
@@ -172,9 +173,6 @@
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{e8c2cf8d-f247-4314-8ffd-7562663fbb76}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
 		<property name="decayTime">
 			<value>500</value>
 		</property>
@@ -191,6 +189,11 @@
 		</property>
 	</object>
 	<object class="LimiterEffect" id="{1d5a72c2-7a95-4cda-b2b3-55ec77f1cc94}" />
+	<object class="PannerEffect" id="{2e27c458-3d01-4b02-aa57-3503112e87bb}">
+		<relationship name="modulators">
+			<destination>{6c0e76d7-88e3-47f1-9a49-3a139e24d446}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{4d5670d7-1b02-43c1-9495-28b0e1bd76e1}" />
 	<object class="ThreeEQEffect" id="{3e5cc402-dfb5-4fcc-9260-9794dc07af09}">
 		<property name="lowGain">
@@ -212,6 +215,17 @@
 		</property>
 		<property name="wetLevel">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="LFOModulator" id="{6c0e76d7-88e3-47f1-9a49-3a139e24d446}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>stereoPan</value>
+		</property>
+		<property name="rate">
+			<value>0.155000001</value>
+		</property>
+		<property name="depth">
+			<value>50</value>
 		</property>
 	</object>
 </objects>
