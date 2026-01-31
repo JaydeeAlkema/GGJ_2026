@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using Mask;
 using UnityEngine;
 
-namespace Mask
+namespace CompletedMask
 {
 	public interface ICompletedMaskItem
 	{

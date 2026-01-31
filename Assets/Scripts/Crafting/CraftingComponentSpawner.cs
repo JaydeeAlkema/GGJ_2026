@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CompletedMask;
 using Mask;
 using NaughtyAttributes;
 using Snapshotter;

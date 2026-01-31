@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Mask;
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace Inventory
+namespace CompletedMask
 {
 	[CreateAssetMenu(fileName = "Completed Mask Items SO", menuName = "ScriptableObjects/new Completed Mask Items SO", order = 0)]
 	public class CompletedMaskItemsSO : ScriptableObject
