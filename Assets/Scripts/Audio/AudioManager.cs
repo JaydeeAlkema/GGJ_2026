@@ -239,6 +239,12 @@ public class AudioManager : MonoBehaviour {
     RuntimeManager.StudioSystem.setParameterByName("Fright", 0-1 float);
     RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0-1 float);
 
+    ___________________________________________________
+
+    @Preset: 
+
+
+
     */
 
 }
