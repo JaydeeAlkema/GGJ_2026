@@ -18,8 +18,13 @@ namespace Mask
 		void Unlock();
 
 		bool GetIsDraggable();
-		void Drag();
+		void Drag(Vector3 worldPos);
 		void Drop();
+
+		void Scale(float value);
+
+		void FlipHorizontal(bool flipLeft);
+		void FlipVertical(bool flipUp);
 
 		void FollowMouse();
 	}

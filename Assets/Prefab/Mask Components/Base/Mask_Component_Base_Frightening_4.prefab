@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
       propertyPath: Visuals
       value: 
-      objectReference: {fileID: 3919011412980780820, guid: 6fc9e05fed4330c4aa5e2d1c419a196b, type: 3}
+      objectReference: {fileID: 21300000, guid: 6fc9e05fed4330c4aa5e2d1c419a196b, type: 3}
     - target: {fileID: 6798845539155560195, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
       propertyPath: m_Name
       value: Mask_Component_Base_Frightening_4
