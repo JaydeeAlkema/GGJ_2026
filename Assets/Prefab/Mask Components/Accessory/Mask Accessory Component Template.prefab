@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mask.MaskComponent
   SpriteRenderer: {fileID: 2452532196150747124}
   Trait: 1
+  ComponentType: 1
   Visuals: {fileID: 7482667652216324306, guid: c6bc3d8219e41fc48853364cdac426a4, type: 3}
 --- !u!61 &4478040823769182977
 BoxCollider2D:

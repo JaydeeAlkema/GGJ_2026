@@ -29,7 +29,12 @@ namespace Crafting
 			MaskComponentType craftingStageType = (MaskComponentType)_craftingStageIndex;
 			for (int i = 0; i < maskComponentsInterfaces.Count; i++)
 			{
-				// int maskComponentTypeIndex = (int)maskComponentsInterfaces[i].();
+				int maskComponentTypeIndex = (int)maskComponentsInterfaces[i].GetMaskComponentType();
+				if (maskComponentTypeIndex == (int)craftingStageType)
+					continue;
+
+				maskComponentsInterfaces.RemoveAt(i);
+				i--;
 			}
 
 			foreach (IMaskComponent maskComponent in maskComponentsInterfaces)
