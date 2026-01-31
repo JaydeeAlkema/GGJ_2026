@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -5621219007188229272, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
       propertyPath: Visuals
       value: 
-      objectReference: {fileID: 21300000, guid: 64d3a91cd16291f498e8c7f5911e993b, type: 3}
+      objectReference: {fileID: 6861962959499413392, guid: 6a03c94aaeb01a44c8761a401f6ceed9, type: 3}
     - target: {fileID: 6798845539155560195, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
       propertyPath: m_Name
       value: Mask_Component_Accessory_Cloth_4
