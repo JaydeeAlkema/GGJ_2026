@@ -1,6 +1,5 @@
-﻿using CompletedMask;
-using Crafting;
-using NaughtyAttributes;
+﻿using NaughtyAttributes;
+using StateMachine.States;
 using UnityEngine;
 
 namespace UI
@@ -15,17 +14,26 @@ namespace UI
 
 		private void OnEnable()
 		{
-			CraftingComponentSpawner.OnCompletedMaskItemReady += CraftingComponentSpawner_OnCompletedMaskItemReady;
+			StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
 		}
 
 		private void OnDisable()
 		{
-			CraftingComponentSpawner.OnCompletedMaskItemReady -= CraftingComponentSpawner_OnCompletedMaskItemReady;
+			StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
 		}
 
-		private void CraftingComponentSpawner_OnCompletedMaskItemReady(CompletedMaskItem completedMaskItem)
+		private void StateMachine_OnStateChanged(StateBase previousState, StateBase newState)
 		{
-			ToggleClientScreen();
+			switch (newState)
+			{
+				case CraftingState:
+					ToggleCraftingScreen();
+					break;
+
+				case VendorDialogueState:
+					ToggleClientScreen();
+					break;
+			}
 		}
 
 		private void ToggleClientScreen()

@@ -40,18 +40,22 @@ namespace Crafting
 			_button.onClick.RemoveListener(OnButtonClick);
 		}
 
-
 		private void OnButtonClick()
 		{
 			OnComponentMenuItemClicked?.Invoke(_maskComponentPrefab);
 		}
 
-		public void Initialize(MaskComponent prefab)
+		public void Initialize(MaskComponent prefab, int amount)
 		{
 			_maskComponentPrefab = prefab;
 			ComponentImage.sprite = prefab.GetVisuals();
+
+			bool componentIsBase = prefab.GetMaskComponentType() is MaskComponentType.Base;
+			ComponentTraitImage.enabled = !componentIsBase;
+			ComponentCountText.enabled = !componentIsBase;
+
 			ComponentTraitImage.sprite = TraitIconsDatabase.GetIconForTrait(prefab.GetMaskTraits());
-			ComponentCountText.text = "∞"; // Placeholder for count, can be updated later
+			ComponentCountText.text = amount.ToString();
 		}
 	}
 }

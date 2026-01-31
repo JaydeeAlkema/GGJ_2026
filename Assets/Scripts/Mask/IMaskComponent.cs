@@ -9,6 +9,7 @@ namespace Mask
 
 		void SetClampArea(float clampTop, float clampBottom, float clampLeft, float clampRight);
 
+		void SetMaskTraits(MaskTrait trait);
 		MaskTrait GetMaskTraits();
 		MaskComponentType GetMaskComponentType();
 
@@ -17,8 +18,15 @@ namespace Mask
 		void Unlock();
 
 		bool GetIsDraggable();
-		void Drag();
+		void Drag(Vector3 worldPos);
 		void Drop();
+
+		void RequestRemove();
+
+		void Scale(float value);
+
+		void FlipHorizontal(bool flipLeft);
+		void FlipVertical(bool flipUp);
 
 		void FollowMouse();
 	}

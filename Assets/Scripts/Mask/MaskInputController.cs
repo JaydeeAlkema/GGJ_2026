@@ -15,27 +15,33 @@ namespace Mask
 
 		private void Awake()
 		{
-			_inputs ??= new InputSystem_Actions();
+			_inputs = new InputSystem_Actions();
 			_camera = Camera.main;
 		}
 
 		private void OnEnable()
 		{
 			_inputs.Player.Enable();
+
 			_inputs.Player.Click.performed += OnClickStarted;
 			_inputs.Player.Click.canceled += OnClickCanceled;
+
+			// _inputs.Player.Remove.performed += OnRemovePerformed;
 		}
 
 		private void OnDisable()
 		{
 			_inputs.Player.Click.performed -= OnClickStarted;
 			_inputs.Player.Click.canceled -= OnClickCanceled;
+
+			// _inputs.Player.Remove.performed -= OnRemovePerformed;
+
 			_inputs.Player.Disable();
 		}
 
 		private void Update()
 		{
-			if (_activeDrag == null)
+			if (!_activeDrag)
 				return;
 
 			_activeDrag.FollowMouse();
@@ -50,16 +56,28 @@ namespace Mask
 			Vector3 worldPos = ScreenToWorld(mouseScreen);
 
 			_activeDrag = ResolveTopMost(worldPos);
-			_activeDrag?.Drag();
+			_activeDrag?.Drag(worldPos);
 		}
 
 		private void OnClickCanceled(InputAction.CallbackContext _)
 		{
-			if (_activeDrag == null)
+			if (!_activeDrag)
 				return;
 
 			_activeDrag.Drop();
 			_activeDrag = null;
+		}
+
+		private void OnRemovePerformed(InputAction.CallbackContext _)
+		{
+			Vector2 mouseScreen = Mouse.current.position.ReadValue();
+			Vector3 worldPos = ScreenToWorld(mouseScreen);
+
+			MaskComponent componentToRequestRemoval = ResolveTopMost(worldPos);
+			if (!componentToRequestRemoval)
+				return;
+
+			componentToRequestRemoval.RequestRemove();
 		}
 
 		private MaskComponent ResolveTopMost(Vector3 worldPos)
@@ -89,17 +107,13 @@ namespace Mask
 			SpriteRenderer ra = a.GetSpriteRenderer();
 			SpriteRenderer rb = b.GetSpriteRenderer();
 
-			if (ra.sortingLayerID != rb.sortingLayerID)
-			{
-				int la = SortingLayer.GetLayerValueFromID(ra.sortingLayerID);
-				int lb = SortingLayer.GetLayerValueFromID(rb.sortingLayerID);
-				return lb.CompareTo(la);
-			}
+			if (ra.sortingLayerID == rb.sortingLayerID)
+				return ra.sortingOrder != rb.sortingOrder ? rb.sortingOrder.CompareTo(ra.sortingOrder) : rb.transform.position.z.CompareTo(ra.transform.position.z);
 
-			if (ra.sortingOrder != rb.sortingOrder)
-				return rb.sortingOrder.CompareTo(ra.sortingOrder);
+			int la = SortingLayer.GetLayerValueFromID(ra.sortingLayerID);
+			int lb = SortingLayer.GetLayerValueFromID(rb.sortingLayerID);
 
-			return rb.transform.position.z.CompareTo(ra.transform.position.z);
+			return lb.CompareTo(la);
 		}
 
 		private Vector3 ScreenToWorld(Vector2 screenPos)

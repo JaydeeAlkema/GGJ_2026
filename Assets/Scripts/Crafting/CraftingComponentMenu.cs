@@ -13,45 +13,52 @@ namespace Crafting
 		public static event Action OnCraftingStageChanged;
 
 		[BoxGroup("References")]
-		[SerializeField] private MaskComponentsSO MaskComponentsDatabase;
-		[BoxGroup("References")]
 		[SerializeField] private CraftingComponentMenuItem CraftingComponentMenuItemPrefab;
 		[BoxGroup("References")]
 		[SerializeField] private Transform MenuContentParent;
 
 		private int _craftingStageIndex;
 
+		private List<MaskComponentDatabaseEntry> maskComponents;
+
 		private void OnEnable()
 		{
 			// Not performant at all. But who cares. Not me ¯\_(ツ)_/¯ ~Jaydee
+			MaskComponentsInventory.OnMaskComponentsChanged += MaskComponentsDatabase_OnMaskComponentsChanged;
+			DepopulateMenu();
+			PopulateMenu();
+		}
+
+		private void OnDisable()
+		{
+			MaskComponentsInventory.OnMaskComponentsChanged -= MaskComponentsDatabase_OnMaskComponentsChanged;
+		}
+
+		private void MaskComponentsDatabase_OnMaskComponentsChanged()
+		{
 			DepopulateMenu();
 			PopulateMenu();
 		}
 
 		private void PopulateMenu()
 		{
-			List<IMaskComponent> maskComponentsInterfaces = MaskComponentsDatabase.GetMaskComponentsInterfaces();
+			maskComponents = new List<MaskComponentDatabaseEntry>(MaskComponentsInventory.Instance.GetMaskComponents());
 			MaskComponentType craftingStageType = (MaskComponentType)_craftingStageIndex;
-			for (int i = 0; i < maskComponentsInterfaces.Count; i++)
+			for (int i = 0; i < maskComponents.Count; i++)
 			{
-				int maskComponentTypeIndex = (int)maskComponentsInterfaces[i].GetMaskComponentType();
-				if (maskComponentTypeIndex == (int)craftingStageType)
+				// Remove all components that are not of the same type as the stage.
+				// Also remove all components that have an amount of zero.
+				if (maskComponents[i].ComponentType == craftingStageType && (maskComponents[i].Amount > 0 || maskComponents[i].Amount == -1))
 					continue;
 
-				maskComponentsInterfaces.RemoveAt(i);
+				maskComponents.RemoveAt(i);
 				i--;
 			}
 
-			if (!maskComponentsInterfaces.Any())
-			{
-				OnMaskCompleted?.Invoke();
-				return;
-			}
-
-			foreach (IMaskComponent maskComponent in maskComponentsInterfaces)
+			foreach (MaskComponentDatabaseEntry maskComponent in maskComponents)
 			{
 				CraftingComponentMenuItem menuItem = Instantiate(CraftingComponentMenuItemPrefab, MenuContentParent);
-				menuItem.Initialize((MaskComponent)maskComponent);
+				menuItem.Initialize(maskComponent.MaskComponent, maskComponent.Amount);
 			}
 		}
 
@@ -69,6 +76,12 @@ namespace Crafting
 			OnCraftingStageChanged?.Invoke();
 			DepopulateMenu();
 			PopulateMenu();
+
+			if (maskComponents.Any())
+				return;
+
+			OnMaskCompleted?.Invoke();
+			_craftingStageIndex = 0;
 		}
 	}
 }
