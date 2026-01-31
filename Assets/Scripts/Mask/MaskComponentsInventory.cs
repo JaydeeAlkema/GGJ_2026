@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Mask
 {
@@ -117,6 +118,19 @@ namespace Mask
 			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Accessory))
 			{
 				entry.Amount = Mathf.Max(0, entry.Amount - 1);
+			}
+		}
+
+		[Button]
+		private void RandomizeAllAccessoryComponentTypes()
+		{
+			Array traitValues = Enum.GetValues(typeof(MaskTrait));
+			Random random = new();
+
+			foreach (MaskComponentDatabaseEntry entry in MaskComponents.Where(entry => entry.ComponentType is MaskComponentType.Accessory))
+			{
+				MaskTrait randomTrait = (MaskTrait)traitValues.GetValue(random.Next(traitValues.Length));
+				entry.MaskComponent.SetMaskTraits(randomTrait);
 			}
 		}
 #endif
