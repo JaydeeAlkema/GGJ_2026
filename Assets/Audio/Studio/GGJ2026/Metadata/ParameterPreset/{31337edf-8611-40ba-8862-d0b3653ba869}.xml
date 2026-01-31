@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{31337edf-8611-40ba-8862-d0b3653ba869}">
+		<property name="name">
+			<value>Charm</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7b22a647-1afe-4f50-be8c-84e4c006d164}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{78470b5f-1ebf-426a-a1c1-3b79a1063dc9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{78470b5f-1ebf-426a-a1c1-3b79a1063dc9}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
