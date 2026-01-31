@@ -25,12 +25,16 @@ namespace Mask
 
 			_inputs.Player.Click.performed += OnClickStarted;
 			_inputs.Player.Click.canceled += OnClickCanceled;
+
+			// _inputs.Player.Remove.performed += OnRemovePerformed;
 		}
 
 		private void OnDisable()
 		{
 			_inputs.Player.Click.performed -= OnClickStarted;
 			_inputs.Player.Click.canceled -= OnClickCanceled;
+
+			// _inputs.Player.Remove.performed -= OnRemovePerformed;
 
 			_inputs.Player.Disable();
 		}
@@ -62,6 +66,18 @@ namespace Mask
 
 			_activeDrag.Drop();
 			_activeDrag = null;
+		}
+
+		private void OnRemovePerformed(InputAction.CallbackContext _)
+		{
+			Vector2 mouseScreen = Mouse.current.position.ReadValue();
+			Vector3 worldPos = ScreenToWorld(mouseScreen);
+
+			MaskComponent componentToRequestRemoval = ResolveTopMost(worldPos);
+			if (!componentToRequestRemoval)
+				return;
+
+			componentToRequestRemoval.RequestRemove();
 		}
 
 		private MaskComponent ResolveTopMost(Vector3 worldPos)

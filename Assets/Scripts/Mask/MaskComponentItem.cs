@@ -1,7 +1,6 @@
 ﻿using System;
-using Mask;
 
-namespace Crafting
+namespace Mask
 {
 	[Serializable]
 	public class MaskComponentItem

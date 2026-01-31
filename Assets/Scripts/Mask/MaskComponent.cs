@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,8 @@ namespace Mask
 {
 	public class MaskComponent : MonoBehaviour, IMaskComponent
 	{
+		public static event Action<MaskComponent> OnMaskComponentRemoveRequested;
+
 		[BoxGroup("References")]
 		[SerializeField] private SpriteRenderer SpriteRenderer;
 
@@ -102,7 +105,7 @@ namespace Mask
 				return;
 
 			int orderChange = (int)obj.ReadValue<float>();
-			orderChange = Mathf.Min(0, orderChange);
+			orderChange = Mathf.Max(0, orderChange);
 			SpriteRenderer.sortingOrder += orderChange;
 		}
 
@@ -182,6 +185,11 @@ namespace Mask
 				return;
 
 			_isDragging = false;
+		}
+
+		public void RequestRemove()
+		{
+			OnMaskComponentRemoveRequested?.Invoke(this);
 		}
 
 		public void Scale(float value)
