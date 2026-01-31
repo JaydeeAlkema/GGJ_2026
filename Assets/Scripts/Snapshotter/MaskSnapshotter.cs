@@ -24,12 +24,6 @@ namespace Snapshotter
 				return null;
 
 			PositionCamera(bounds);
-
-			// testing purposes. spawn in an object and attach the sprite to it
-			GameObject go = new("Snapshot Test Object");
-			SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
-			sr.sprite = CaptureSprite();
-
 			return CaptureSprite();
 		}
 

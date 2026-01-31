@@ -1,4 +1,5 @@
-﻿using Inventory;
+﻿using CompletedMask;
+using Crafting;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -14,18 +15,31 @@ namespace UI
 
 		private void OnEnable()
 		{
-			InventoryDriver.OnItemAddedToInventory += InventoryDriver_OnItemAddedToInventory;
+			CraftingComponentSpawner.OnCompletedMaskItemReady += CraftingComponentSpawner_OnCompletedMaskItemReady;
+
+			ToggleClientScreen();
 		}
 
 		private void OnDisable()
 		{
-			InventoryDriver.OnItemAddedToInventory -= InventoryDriver_OnItemAddedToInventory;
+			CraftingComponentSpawner.OnCompletedMaskItemReady -= CraftingComponentSpawner_OnCompletedMaskItemReady;
 		}
 
-		private void InventoryDriver_OnItemAddedToInventory()
+		private void CraftingComponentSpawner_OnCompletedMaskItemReady(CompletedMaskItem completedMaskItem)
+		{
+			ToggleClientScreen();
+		}
+
+		private void ToggleClientScreen()
 		{
 			CraftingMenuScreen.gameObject.SetActive(false);
 			ClientMenuScreen.gameObject.SetActive(true);
+		}
+
+		private void ToggleCraftingScreen()
+		{
+			ClientMenuScreen.gameObject.SetActive(false);
+			CraftingMenuScreen.gameObject.SetActive(true);
 		}
 	}
 }
