@@ -1279,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Client Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 8237179931245882731, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1289,27 +1293,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1357,6 +1361,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590768843987805090, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203517104771476815, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

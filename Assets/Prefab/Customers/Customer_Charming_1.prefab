@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2763705961461291307, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763705961461291307, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.03
+      objectReference: {fileID: 0}
     - target: {fileID: 5671691714306219610, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,9 +56,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5854010087678484528, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5965350878969765139, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_Name
-      value: Customer
+      value: Customer_Charming_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
