@@ -24,6 +24,10 @@ MonoBehaviour:
     m_path: Assets/Scenes/Intro.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Game.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/YouLose.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/YouWin.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
