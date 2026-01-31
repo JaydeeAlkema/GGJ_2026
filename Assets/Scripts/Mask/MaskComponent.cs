@@ -53,6 +53,8 @@ namespace Mask
 			_inputs.Player.VerticalFlip.performed += OnVerticalFlipPerformed;
 
 			_inputs.Player.ChangeSpriteOrder.performed += OnChangeSpriteOrderPerformed;
+
+			_scale = this.transform.localScale.x;
 		}
 
 		private void OnDisable()
