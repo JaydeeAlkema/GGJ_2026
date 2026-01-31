@@ -136,6 +136,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Remove"",
+                    ""type"": ""Button"",
+                    ""id"": ""187d7e94-a6aa-44b4-ab24-59932804fc29"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -259,6 +268,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ChangeSpriteOrder"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85b120b6-eee3-470b-9569-3d813fbb2214"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Remove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -849,6 +869,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_VerticalFlip = m_Player.FindAction("Vertical Flip", throwIfNotFound: true);
         m_Player_Scale = m_Player.FindAction("Scale", throwIfNotFound: true);
         m_Player_ChangeSpriteOrder = m_Player.FindAction("ChangeSpriteOrder", throwIfNotFound: true);
+        m_Player_Remove = m_Player.FindAction("Remove", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -947,6 +968,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_VerticalFlip;
     private readonly InputAction m_Player_Scale;
     private readonly InputAction m_Player_ChangeSpriteOrder;
+    private readonly InputAction m_Player_Remove;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -978,6 +1000,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ChangeSpriteOrder".
         /// </summary>
         public InputAction @ChangeSpriteOrder => m_Wrapper.m_Player_ChangeSpriteOrder;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Remove".
+        /// </summary>
+        public InputAction @Remove => m_Wrapper.m_Player_Remove;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1019,6 +1045,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ChangeSpriteOrder.started += instance.OnChangeSpriteOrder;
             @ChangeSpriteOrder.performed += instance.OnChangeSpriteOrder;
             @ChangeSpriteOrder.canceled += instance.OnChangeSpriteOrder;
+            @Remove.started += instance.OnRemove;
+            @Remove.performed += instance.OnRemove;
+            @Remove.canceled += instance.OnRemove;
         }
 
         /// <summary>
@@ -1045,6 +1074,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ChangeSpriteOrder.started -= instance.OnChangeSpriteOrder;
             @ChangeSpriteOrder.performed -= instance.OnChangeSpriteOrder;
             @ChangeSpriteOrder.canceled -= instance.OnChangeSpriteOrder;
+            @Remove.started -= instance.OnRemove;
+            @Remove.performed -= instance.OnRemove;
+            @Remove.canceled -= instance.OnRemove;
         }
 
         /// <summary>
@@ -1380,6 +1412,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnChangeSpriteOrder(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Remove" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRemove(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

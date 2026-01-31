@@ -66,8 +66,6 @@ namespace StateMachine
 
 			CurrentState.Enter();
 
-			Debug.Log($"State changed to: {CurrentState.GetType().Name}");
-
 			OnStateChanged?.Invoke(previous, CurrentState);
 		}
 	}

@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,8 @@ namespace Mask
 {
 	public class MaskComponent : MonoBehaviour, IMaskComponent
 	{
+		public static event Action<MaskComponent> OnMaskComponentRemoveRequested;
+
 		[BoxGroup("References")]
 		[SerializeField] private SpriteRenderer SpriteRenderer;
 
@@ -182,6 +185,11 @@ namespace Mask
 				return;
 
 			_isDragging = false;
+		}
+
+		public void RequestRemove()
+		{
+			OnMaskComponentRemoveRequested?.Invoke(this);
 		}
 
 		public void Scale(float value)

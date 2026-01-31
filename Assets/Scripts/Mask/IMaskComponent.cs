@@ -21,6 +21,8 @@ namespace Mask
 		void Drag(Vector3 worldPos);
 		void Drop();
 
+		void RequestRemove();
+
 		void Scale(float value);
 
 		void FlipHorizontal(bool flipLeft);

@@ -9,15 +9,16 @@
 			base.Enter();
 
 			counter = 0;
+			this.IsComplete = true;
+
 		}
 
 		public override void Tick(float deltaTime)
 		{
-			counter += deltaTime;
-			if (counter >= 1f)
-			{
-				this.IsComplete = true;
-			}
+			// counter += deltaTime;
+			// if (counter >= 1f)
+			// {
+			// }
 		}
 
 		public override void Exit() { }

@@ -12,7 +12,7 @@ namespace Crafting
 	[ExecuteAlways]
 	public class CraftingComponentSpawner : MonoBehaviour
 	{
-		public static event Action<CompletedMaskItem> OnCompletedMaskItemReady;
+		public static event Action<MaskComponent> OnSpawnedComponentChanged;
 
 		[BoxGroup("Reference Area (16:9)")]
 		[SerializeField] private Vector2 ReferenceSize = new(16f, 9f);
@@ -62,6 +62,7 @@ namespace Crafting
 			CraftingComponentMenuItem.OnComponentMenuItemClicked += CraftingComponentMenuItem_OnComponentMenuItemClicked;
 			CraftingComponentMenu.OnMaskCompleted += CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged += CraftingComponentMenu_OnCraftingStageChanged;
+			MaskComponent.OnMaskComponentRemoveRequested += MaskComponent_OnMaskComponentRemoveRequested;
 		}
 
 		private void OnDisable()
@@ -83,6 +84,59 @@ namespace Crafting
 #if UNITY_EDITOR
 			UpdateClampArea();
 #endif
+		}
+
+		private void CraftingComponentMenuItem_OnComponentMenuItemClicked(MaskComponent componentPrefab)
+		{
+			MaskComponent newComponent = Instantiate(componentPrefab, SpawnPosition, Quaternion.identity, SpawnParent);
+			newComponent.SetVisuals(newComponent.GetVisuals());
+			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
+			_spawnedComponents.Add(newComponent);
+
+			if (newComponent.GetMaskComponentType() is MaskComponentType.Base)
+				return;
+
+			MaskComponentsInventory.Instance.RemoveMaskComponent(componentPrefab);
+			OnSpawnedComponentChanged?.Invoke(newComponent);
+		}
+
+		private void CraftingComponentMenu_OnCraftingStageChanged()
+		{
+			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
+			{
+				component.Lock();
+			}
+		}
+
+		private void CraftingComponentMenu_OnMaskCompleted()
+		{
+			if (_maskSnapshotter == null)
+				return;
+
+			List<MaskTrait> maskTraits = new(
+				_spawnedComponents
+					.Where(x => x != null)
+					.Select(x => x.GetMaskTraits())
+					.ToList()
+			);
+
+			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
+			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
+
+			// Find all the components in the database, and remove them from the database.
+			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
+			{
+				MaskComponentsInventory.Instance.RemoveMaskComponent(component);
+			}
+
+			Cleanup();
+		}
+
+		private void MaskComponent_OnMaskComponentRemoveRequested(MaskComponent component)
+		{
+			MaskComponentsInventory.Instance.AddMaskComponent(component);
+			_spawnedComponents.Remove(component);
+			Destroy(component.gameObject);
 		}
 
 		private void UpdateClampArea()
@@ -121,52 +175,6 @@ namespace Crafting
 				(ClampLeft + ClampRight) * 0.5f,
 				(ClampBottom + ClampTop) * 0.5f
 			);
-		}
-
-		private void CraftingComponentMenuItem_OnComponentMenuItemClicked(MaskComponent componentPrefab)
-		{
-			MaskComponent newComponent = Instantiate(componentPrefab, SpawnPosition, Quaternion.identity, SpawnParent);
-			newComponent.SetVisuals(newComponent.GetVisuals());
-			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
-			_spawnedComponents.Add(newComponent);
-
-			if (newComponent.GetMaskComponentType() is MaskComponentType.Base)
-				return;
-
-			MaskComponentsInventory.Instance.RemoveMaskComponent(componentPrefab);
-		}
-
-		private void CraftingComponentMenu_OnCraftingStageChanged()
-		{
-			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
-			{
-				component.Lock();
-			}
-		}
-
-		private void CraftingComponentMenu_OnMaskCompleted()
-		{
-			if (_maskSnapshotter == null)
-				return;
-
-			List<MaskTrait> maskTraits = new(
-				_spawnedComponents
-					.Where(x => x != null)
-					.Select(x => x.GetMaskTraits())
-					.ToList()
-			);
-
-			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
-			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
-
-			// Find all the components in the database, and remove them from the database.
-			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
-			{
-				MaskComponentsInventory.Instance.RemoveMaskComponent(component);
-			}
-
-			OnCompletedMaskItemReady?.Invoke(completedMaskItem);
-			Cleanup();
 		}
 
 		private void Cleanup()

@@ -29,21 +29,26 @@ namespace Mask
 
 		public void AddMaskComponent(MaskComponent component)
 		{
+			string nameToFind = component.name;
+			string nameToFindSanitized = nameToFind.Replace("(Clone)", "").Trim();
 			// If it already exists, just increment the amount.
-			if (MaskComponents.Exists(item => item.MaskComponent == component))
+			MaskComponentDatabaseEntry foundComponent = MaskComponents.Find(item => item.MaskComponent.name == nameToFindSanitized);
+			if (foundComponent != null)
 			{
-				MaskComponents.Find(item => item.MaskComponent == component).Amount++;
+				foundComponent.Amount++;
 				OnMaskComponentsChanged?.Invoke();
 				return;
 			}
 
 			// Otherwise, add a new entry.
-			MaskComponents.Add(new MaskComponentDatabaseEntry
+			MaskComponentDatabaseEntry maskComponentDatabaseEntry = new()
 			{
 				MaskComponent = component,
 				ComponentType = component.GetMaskComponentType(),
 				Amount = 1,
-			});
+			};
+			MaskComponents.Add(maskComponentDatabaseEntry);
+			Debug.Log($"Added new item with amount: {maskComponentDatabaseEntry.Amount} for component {maskComponentDatabaseEntry.MaskComponent.name}");
 			OnMaskComponentsChanged?.Invoke();
 		}
 
@@ -52,12 +57,13 @@ namespace Mask
 			// If it already exists, just decrement the amount.
 			// We never fully remove them from the list to keep track of what has been used.
 			// Just decrease to zero.
-			Debug.Log("Attempting to remove one instance of " + component.name);
-			if (!MaskComponents.Exists(item => item.MaskComponent.name == component.name))
+			string nameToFind = component.name;
+			string nameToFindSanitized = nameToFind.Replace("(Clone)", "").Trim();
+			MaskComponentDatabaseEntry foundComponent = MaskComponents.Find(item => item.MaskComponent.name == nameToFindSanitized);
+			if (foundComponent == null)
 				return;
 
-			MaskComponents.Find(item => item.MaskComponent == component).Amount--;
-			Debug.Log("Removed one instance of " + component.name + ". Remaining amount: " + MaskComponents.Find(item => item.MaskComponent == component).Amount);
+			foundComponent.Amount--;
 			OnMaskComponentsChanged?.Invoke();
 		}
 
