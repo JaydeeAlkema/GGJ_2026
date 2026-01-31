@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{8df59712-c9db-40cd-84ae-8d52273c2a94}">
 		<property name="name">
-			<value>Reputation</value>
+			<value>Chaos</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
@@ -17,9 +17,6 @@
 		</property>
 		<property name="maximum">
 			<value>0</value>
-		</property>
-		<property name="isGlobal">
-			<value>true</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
