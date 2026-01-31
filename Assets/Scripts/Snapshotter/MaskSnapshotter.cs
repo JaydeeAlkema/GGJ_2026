@@ -8,10 +8,8 @@ namespace Snapshotter
 		[BoxGroup("References")]
 		[SerializeField] private Camera CaptureCamera;
 
-		private Sprite _snapshotSprite;
-
 		[Button]
-		public void Snapshot()
+		public Sprite Snapshot()
 		{
 			CaptureCamera.Render();
 
@@ -31,7 +29,7 @@ namespace Snapshotter
 				100f
 			);
 
-			_snapshotSprite = snapshotSprite;
+			return snapshotSprite;
 		}
 	}
 }

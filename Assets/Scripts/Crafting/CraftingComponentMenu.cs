@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Mask;
 using NaughtyAttributes;
 using UnityEngine;
@@ -7,6 +9,9 @@ namespace Crafting
 {
 	public class CraftingComponentMenu : MonoBehaviour
 	{
+		public static event Action OnMaskCompleted;
+		public static event Action OnCraftingStageChanged;
+
 		[BoxGroup("References")]
 		[SerializeField] private MaskComponentsSO MaskComponentsDatabase;
 		[BoxGroup("References")]
@@ -37,6 +42,12 @@ namespace Crafting
 				i--;
 			}
 
+			if (!maskComponentsInterfaces.Any())
+			{
+				OnMaskCompleted?.Invoke();
+				return;
+			}
+
 			foreach (IMaskComponent maskComponent in maskComponentsInterfaces)
 			{
 				CraftingComponentMenuItem menuItem = Instantiate(CraftingComponentMenuItemPrefab, MenuContentParent);
@@ -55,6 +66,7 @@ namespace Crafting
 		public void SubmitButton()
 		{
 			_craftingStageIndex++;
+			OnCraftingStageChanged?.Invoke();
 			DepopulateMenu();
 			PopulateMenu();
 		}

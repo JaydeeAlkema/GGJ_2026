@@ -16,7 +16,10 @@ namespace Mask
 		void Lock();
 		void Unlock();
 
+		bool GetIsDraggable();
 		void Drag();
 		void Drop();
+
+		void FollowMouse();
 	}
 }

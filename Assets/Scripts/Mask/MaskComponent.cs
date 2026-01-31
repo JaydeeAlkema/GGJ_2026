@@ -18,6 +18,11 @@ namespace Mask
 		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
 
+		public SpriteRenderer GetSpriteRenderer()
+		{
+			return SpriteRenderer;
+		}
+
 		private bool _isLocked;
 		private bool _isDragging;
 
@@ -41,14 +46,6 @@ namespace Mask
 			_inputs.Player.Enable();
 			_inputs.Player.Click.performed += OnButtonClick;
 			_inputs.Player.Click.canceled += OnButtonRelease;
-		}
-
-		private void Update()
-		{
-			if (!_isDragging)
-				return;
-
-			FollowMouse();
 		}
 
 		private void OnDisable()
@@ -112,6 +109,11 @@ namespace Mask
 			_isLocked = false;
 		}
 
+		public bool GetIsDraggable()
+		{
+			return !_isLocked;
+		}
+
 		public void Drag()
 		{
 			if (_isLocked)
@@ -140,7 +142,7 @@ namespace Mask
 			_isDragging = false;
 		}
 
-		private void FollowMouse()
+		public void FollowMouse()
 		{
 			Vector3 mousePosition = Mouse.current.position.ReadValue();
 			mousePosition.z = 10f; // Set this to be the distance from the camera
