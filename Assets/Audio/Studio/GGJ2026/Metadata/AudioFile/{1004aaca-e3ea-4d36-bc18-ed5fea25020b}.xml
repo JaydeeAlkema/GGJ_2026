@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{151a8b67-70e9-446b-bb03-b4a76a303256}">
+	<object class="AudioFile" id="{1004aaca-e3ea-4d36-bc18-ed5fea25020b}">
 		<property name="assetPath">
-			<value>Sound Effects/s_Tranquil.wav</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>Sound Effects/f_Select.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>16</value>
+			<value>0.82872916666666663</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{f07d0426-a1b0-41e5-8c22-5cf9a9a47224}</destination>

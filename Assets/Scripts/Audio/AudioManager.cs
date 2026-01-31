@@ -208,15 +208,37 @@ public class AudioManager : MonoBehaviour {
     }
 
     /*
-     * 
-        [SerializeField] FMODUnity.EventReference s_Select;
-        AudioManager.Instance.PlaySound(s_Select);
 
-        [SerializeField] FMODUnity.EventReference s_Equip;
-        FMOD.Studio.EventInstance i_Equip;
-        i_Equip = AudioManager.Instance.PlayInstance(s_Equip, transform.position);
+    ___________________________________________________
+    
+    @Preset: Select SFX
 
-     *
-     */
+    [SerializeField] FMODUnity.EventReference s_Select;
+
+    AudioManager.Instance.PlaySound(s_Select);
+
+    __________________________________________________
+    
+    @Preset: Equip Component SFX
+
+    [SerializeField] FMODUnity.EventReference s_Equip;
+    FMOD.Studio.EventInstance i_Equip;
+
+    i_Equip = AudioManager.Instance.PlayInstance(s_Equip, transform.position); 
+
+    // Sound changes based on component: ["Material"; "default", "diamond", "glass", "grass", "metal"]
+    // Sound changes based on component: ["Emotions"; "Chaos", "Charm", "Fright", "Tranquil"]
+    // Sound changes based on component: ["Complete"; "True", "False"]
+    // Sound changes based on component: ["Reverb"; 0-1 float]
+    ___________________________________________________
+
+    @Preset: Control Ambient Parameters
+
+    RuntimeManager.StudioSystem.setParameterByName("Chaos", 0-1 float);
+    RuntimeManager.StudioSystem.setParameterByName("Charm", 0-1 float);
+    RuntimeManager.StudioSystem.setParameterByName("Fright", 0-1 float);
+    RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0-1 float);
+
+    */
 
 }

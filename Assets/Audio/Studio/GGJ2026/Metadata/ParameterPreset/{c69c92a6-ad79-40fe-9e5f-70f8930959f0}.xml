@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="ParameterPreset" id="{1f9f4833-c55d-434a-8fb0-4f4a83bbbc9a}">
+	<object class="ParameterPreset" id="{c69c92a6-ad79-40fe-9e5f-70f8930959f0}">
 		<property name="name">
-			<value>Material</value>
+			<value>State</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a1c591f4-6c20-45ba-807f-9bda5c6b75c6}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{48f37ced-b096-4fbd-9eb5-71c631acf106}</destination>
+			<destination>{3e50c2dd-4f4e-4ae1-93bd-db59dbdd6f6b}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{48f37ced-b096-4fbd-9eb5-71c631acf106}">
+	<object class="GameParameter" id="{3e50c2dd-4f4e-4ae1-93bd-db59dbdd6f6b}">
 		<property name="parameterType">
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>6</value>
+			<value>2</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>default</value>
-			<value>Diamond</value>
-			<value>Glass</value>
-			<value>Grass</value>
-			<value>Metal</value>
-			<value>Wood</value>
+			<value>Hover</value>
+			<value>Select</value>
 		</property>
 		<property name="initialValue">
-			<value>0</value>
+			<value>1</value>
 		</property>
 	</object>
 </objects>
