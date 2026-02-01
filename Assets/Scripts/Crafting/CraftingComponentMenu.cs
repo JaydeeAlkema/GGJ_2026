@@ -98,12 +98,8 @@ namespace Crafting
 			DepopulateMenu();
 			PopulateMenu();
 
-			Debug.Log("Crafting Stage Index: " + _craftingStageIndex);
-
 			if (maskComponents.Any())
 				return;
-
-			Debug.Log("Mask Completed!");
 
 			OnMaskCompleted?.Invoke();
 			_craftingStageIndex = 0;

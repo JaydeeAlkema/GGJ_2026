@@ -1,31 +1,41 @@
-﻿namespace StateMachine.States
+﻿using Dialogue;
+using UnityEngine;
+
+namespace StateMachine.States
 {
 	public class VendorDialogueState : StateBase
 	{
-		private float counter;
+		private VendorDialogue _vendorDialogue;
+		private bool _canAdvance;
 
 		public override void Enter()
 		{
 			base.Enter();
 
-			counter = 0;
-			this.IsComplete = true;
-
+			_canAdvance = true;
+			_vendorDialogue = Object.FindFirstObjectByType<VendorDialogue>();
+			_vendorDialogue?.Speak();
 		}
 
 		public override void Tick(float deltaTime)
 		{
-			// counter += deltaTime;
-			// if (counter >= 3)
-			// {
-			// }
+			if (!_canAdvance)
+				return;
+
+			if (DialogueAdvanceInput.IsAdvancePressed())
+			{
+				this.IsComplete = true;
+			}
 		}
 
-		public override void Exit() { }
+		public override void Exit()
+		{
+			_vendorDialogue?.Hide();
+		}
 
 		public override StateId GetNextStateId()
 		{
-			return StateId.CustomerDialogue;
+			return StateId.Crafting;
 		}
 	}
 }

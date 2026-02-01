@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Goal;
 using Mask;
 using NaughtyAttributes;
 using UnityEngine;
@@ -32,6 +33,9 @@ namespace Customer
 
 		[BoxGroup("References")]
 		[SerializeField] private Image ScoreBarImage;
+		[BoxGroup("References")]
+		[SerializeField] private GoalManager GoalManager;
+
 
 		private void OnEnable()
 		{
@@ -66,22 +70,34 @@ namespace Customer
 				_ => ScoreLevels.Empty,
 			};
 
-			ScoreBarImage.sprite = scoreLevel switch
+			switch (scoreLevel)
 			{
-				ScoreLevels.Empty => ScoreBoardEmpty,
-				ScoreLevels.Low => ScoreBoardLow,
-				ScoreLevels.Medium => ScoreBoardMedium,
-				ScoreLevels.High => ScoreBoardHigh,
-			};
+				case ScoreLevels.Empty:
+					ScoreBarImage.sprite = ScoreBoardEmpty;
+					break;
+
+				case ScoreLevels.Low:
+					ScoreBarImage.sprite = ScoreBoardLow;
+					GoalManager.AddGold(10);
+					break;
+
+				case ScoreLevels.Medium:
+					ScoreBarImage.sprite = ScoreBoardMedium;
+					GoalManager.AddGold(10);
+					break;
+
+				case ScoreLevels.High:
+					ScoreBarImage.sprite = ScoreBoardHigh;
+					GoalManager.AddGold(20);
+					break;
+			}
 
 			StartCoroutine(SendScoreBarVisualsUpdatedEventAfterTime());
 		}
 
 		private static IEnumerator SendScoreBarVisualsUpdatedEventAfterTime()
 		{
-			Debug.Log("Sending ScoreBarVisualsUpdatedEventAfterTime");
 			yield return new WaitForSeconds(3f);
-			Debug.Log("Invoking OnScoreBarVisualsUpdated");
 			OnScoreBarVisualsUpdated?.Invoke();
 		}
 	}
