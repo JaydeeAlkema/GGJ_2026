@@ -1,5 +1,4 @@
 ﻿using Crafting;
-using UnityEngine;
 
 namespace StateMachine.States
 {
@@ -9,16 +8,12 @@ namespace StateMachine.States
 		{
 			base.Enter();
 
-			Debug.Log("Entering Crafting State");
-
 			CraftingComponentMenu.OnMaskCompleted += CraftingComponentMenu_OnMaskCompleted;
 		}
 
 		private void CraftingComponentMenu_OnMaskCompleted()
 		{
 			CraftingComponentMenu.OnMaskCompleted -= CraftingComponentMenu_OnMaskCompleted;
-
-			Debug.Log("Mask crafting completed.");
 
 			this.IsComplete = true;
 		}
@@ -27,10 +22,9 @@ namespace StateMachine.States
 
 		public override void Exit()
 		{
-			Debug.Log("Exiting Crafting State");
-
 			CraftingComponentMenu.OnMaskCompleted -= CraftingComponentMenu_OnMaskCompleted;
 		}
+
 		public override StateId GetNextStateId()
 		{
 			return StateId.VendorDialogue;

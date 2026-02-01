@@ -10,15 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1393589871762515007, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.047
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1393589871762515007, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.186
+      value: 4.126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763705961461291307, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.028
       objectReference: {fileID: 0}
     - target: {fileID: 2763705961461291307, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6.05
+      value: 5.814
       objectReference: {fileID: 0}
     - target: {fileID: 5671691714306219610, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61,12 +65,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5854010087678484528, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854010087678484528, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3e7d5c8785a13b5408c073cf63f6b89f, type: 3}
     - target: {fileID: 5965350878969765139, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_Name
       value: Customer_Frightening_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: DialogueBoxSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c6fed2107644544d9d8a9072181f256, type: 3}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: NeutralTraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'NeutralTraits.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'NeutralTraits.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'DislikedTraits.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572008955434647602, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+      propertyPath: 'PreferredTraits.Array.data[0]'
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8600975936039797506, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalScale.x
@@ -82,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600975936039797506, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

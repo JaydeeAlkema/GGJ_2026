@@ -4,6 +4,7 @@ using System.Linq;
 using Mask;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Crafting
 {
@@ -16,10 +17,13 @@ namespace Crafting
 		[SerializeField] private CraftingComponentMenuItem CraftingComponentMenuItemPrefab;
 		[BoxGroup("References")]
 		[SerializeField] private Transform MenuContentParent;
+		[BoxGroup("References")]
+		[SerializeField] private Button SubmitButton;
 
 		private int _craftingStageIndex;
 
 		private List<MaskComponentDatabaseEntry> maskComponents;
+		private readonly List<CraftingComponentMenuItem> _menuItems = new();
 
 		private void OnEnable()
 		{
@@ -48,7 +52,12 @@ namespace Crafting
 			{
 				// Remove all components that are not of the same type as the stage.
 				// Also remove all components that have an amount of zero.
-				if (maskComponents[i].ComponentType == craftingStageType && (maskComponents[i].Amount > 0 || maskComponents[i].Amount == -1))
+				MaskComponentType maskComponentType = maskComponents[i].ComponentType;
+				int amount = maskComponents[i].Amount;
+				if (maskComponentType == craftingStageType && maskComponentType is MaskComponentType.Base && amount == -1)
+					continue;
+
+				if (maskComponentType == craftingStageType && amount > 0)
 					continue;
 
 				maskComponents.RemoveAt(i);
@@ -59,18 +68,33 @@ namespace Crafting
 			{
 				CraftingComponentMenuItem menuItem = Instantiate(CraftingComponentMenuItemPrefab, MenuContentParent);
 				menuItem.Initialize(maskComponent.MaskComponent, maskComponent.Amount);
+				_menuItems.Add(menuItem);
 			}
+
+			// Sort the menu items by MaskTrait
+			_menuItems.Sort((a, b) =>
+			{
+				MaskTrait aTrait = a.GetMaskTrait();
+				MaskTrait bTrait = b.GetMaskTrait();
+
+				int aTraitValue = (int)aTrait;
+				int bTraitValue = (int)bTrait;
+
+				return aTraitValue.CompareTo(bTraitValue);
+			});
 		}
 
 		private void DepopulateMenu()
 		{
-			foreach (Transform child in MenuContentParent.transform)
+			foreach (CraftingComponentMenuItem menuItem in _menuItems)
 			{
-				Destroy(child.gameObject);
+				Destroy(menuItem.gameObject);
 			}
+
+			_menuItems.Clear();
 		}
 
-		public void SubmitButton()
+		public void SubmitButtonClick()
 		{
 			_craftingStageIndex++;
 			OnCraftingStageChanged?.Invoke();
