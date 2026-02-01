@@ -6,5 +6,6 @@
 		VendorDialogue = 1,
 		CustomerDialogue = 2,
 		Crafting = 3,
+		AfterCrafting = 4,
 	}
 }

@@ -198,6 +198,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219776529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3631546205881349155, guid: 086b055692024854885aca620024405f, type: 3}
+  m_PrefabInstance: {fileID: 651769281568114184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &361933219
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +373,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+--- !u!114 &458844625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2829569817666903449, guid: 086b055692024854885aca620024405f, type: 3}
+  m_PrefabInstance: {fileID: 651769281568114184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e411e3a35cc40c19c0b9dbb278a1a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Customer.CustomerCraftingScoreBar
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +580,8 @@ MonoBehaviour:
   ClampRight: 4.7555556
   CustomerQueueManager: {fileID: 1663575375}
   CustomerPortrait: {fileID: 651769281568114185}
+  CustomerSatisfactionBar: {fileID: 458844625}
+  SubmitButton: {fileID: 219776529}
 --- !u!1 &611064569
 GameObject:
   m_ObjectHideFlags: 0

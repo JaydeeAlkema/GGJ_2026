@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mask.TraitIconsDatabaseSO
   TraitIconEntries:
   - Trait: 0
-    Icon: {fileID: -712631045867808456, guid: 0224419425e22794096c25f4cd3f6f15, type: 3}
+    Icon: {fileID: -7662330337593209710, guid: 7f24ea485ed77044bb3039369fe295e5, type: 3}
   - Trait: 1
     Icon: {fileID: -8820202628895560759, guid: 860f35b99f54246769073640d15ac16b, type: 3}
   - Trait: 2
