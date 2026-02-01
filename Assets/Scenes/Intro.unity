@@ -144,7 +144,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112565486}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c8afbd204cb21ef45a9e38fdff2b0cc3, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 4bdf8273399ace840a23efa00403e608, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1943542158}
@@ -187,6 +187,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1415695262
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.43014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621121601546549545, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485134191570691880, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b513e54b88db4b84ab27515e4fff476c, type: 3}
 --- !u!1 &1943542156
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +433,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6668177308447019819, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313242912021219487, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: s_Klang.Path
+      value: event:/SFX/Misc/Klang
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313242912021219487, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: s_Klang.Guid.Data1
+      value: -1554152792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313242912021219487, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: s_Klang.Guid.Data2
+      value: 1240359301
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313242912021219487, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: s_Klang.Guid.Data3
+      value: -1821718144
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313242912021219487, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+      propertyPath: s_Klang.Guid.Data4
+      value: -1736507176
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -385,6 +466,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1415695262}
   - {fileID: 1943542159}
   - {fileID: 6128003219206084133}
   - {fileID: 112565488}

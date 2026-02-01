@@ -10,6 +10,8 @@ public class Fade : MonoBehaviour
     [SerializeField] private string fadeInTrigger = "FadeIn";
     [SerializeField] private string fadeOutTrigger = "FadeOut";
 
+    [SerializeField] FMODUnity.EventReference s_Klang;
+
     private void Awake()
     {
         if (animator == null)
@@ -29,6 +31,7 @@ public class Fade : MonoBehaviour
         if (playOnStart)
         {
             StartCoroutine(DefaultFadeSequence(playOnStartDelay));
+            StartCoroutine(PlayAudio());
         }
     }
 
@@ -36,6 +39,14 @@ public class Fade : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
         FadeIn(playOnStartFadeSpeed);
+    }
+
+    private System.Collections.IEnumerator PlayAudio() {
+        yield return new WaitForSeconds(0.15f);
+        while (true) {
+            AudioManager.Instance.PlaySound(s_Klang);
+            yield return new WaitForSeconds(2.26f);
+        }
     }
 
     public void FadeIn(float speed = 1f)
