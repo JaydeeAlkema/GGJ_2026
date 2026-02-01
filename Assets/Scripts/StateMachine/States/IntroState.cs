@@ -25,7 +25,7 @@
 
 		public override StateId GetNextStateId()
 		{
-			return StateId.VendorDialogue;
+			return StateId.CustomerDialogue;
 		}
 	}
 }

@@ -53,6 +53,9 @@ namespace Customer
 					ShowAllCustomers();
 					StartCoroutine(ServeNextCustomer());
 					break;
+				case VendorDialogueState:
+					ShowAllCustomers();
+					break;
 
 				default:
 					HideAllCustomers();

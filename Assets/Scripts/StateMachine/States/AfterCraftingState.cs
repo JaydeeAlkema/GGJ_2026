@@ -20,7 +20,7 @@ namespace StateMachine.States
 
 		public override StateId GetNextStateId()
 		{
-			return StateId.VendorDialogue;
+			return StateId.CustomerDialogue;
 		}
 
 		private void CustomerSatisfactionBar_OnScoreBarVisualsUpdated()

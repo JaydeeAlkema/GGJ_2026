@@ -1,29 +1,27 @@
 ﻿using Customer;
+using Dialogue;
 
 namespace StateMachine.States
 {
 	public class CustomerDialogueState : StateBase
 	{
-		private float _counter = 3f;
-		private bool _canCountDown;
+		private bool _canAdvance;
 
 		public override void Enter()
 		{
 			base.Enter();
 
-			_counter = 3f;
-			_canCountDown = false;
+			_canAdvance = false;
 
 			CustomerQueueManager.CustomerGreeted += OnCustomerGreeted;
 		}
 
 		public override void Tick(float deltaTime)
 		{
-			if (!_canCountDown)
+			if (!_canAdvance)
 				return;
 
-			_counter -= deltaTime;
-			if (_counter <= 0f)
+			if (DialogueAdvanceInput.IsAdvancePressed())
 			{
 				this.IsComplete = true;
 			}
@@ -36,13 +34,13 @@ namespace StateMachine.States
 
 		public override StateId GetNextStateId()
 		{
-			return StateId.Crafting;
+			return StateId.VendorDialogue;
 		}
 
 		private void OnCustomerGreeted(Customer.Customer _)
 		{
 			CustomerQueueManager.CustomerGreeted -= OnCustomerGreeted;
-			_canCountDown = true;
+			_canAdvance = true;
 		}
 	}
 }

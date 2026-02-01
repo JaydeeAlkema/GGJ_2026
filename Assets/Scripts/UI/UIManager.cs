@@ -31,6 +31,7 @@ namespace UI
 					break;
 
 				case VendorDialogueState:
+				case CustomerDialogueState:
 					ToggleClientScreen();
 					break;
 			}
