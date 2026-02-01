@@ -30,7 +30,7 @@ namespace Goal
 			if (!IsGoalAchieved())
 				return;
 
-			CutsceneManager.TransitionToScene("YouWin");
+			CutsceneManager.TransitionToScene("YouWin2");
 		}
 
 		private void SetBarFilledAmount()

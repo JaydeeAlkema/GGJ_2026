@@ -39,24 +39,23 @@ namespace Customer
 			SpawnCustomers();
 		}
 
-        private void OnEnable() {
-            StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
-        }
+		private void OnEnable()
+		{
+			StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
+		}
 
-        private void OnDisable() {
-            StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
-        }
+		private void OnDisable()
+		{
+			StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
+		}
 
-        private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
+		private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
 		{
 			switch (currentState)
 			{
 				case CustomerDialogueState:
 					ShowAllCustomers();
 					StartCoroutine(ServeNextCustomer());
-					break;
-				case VendorDialogueState:
-					ShowAllCustomers();
 					break;
 
 				default:
@@ -112,7 +111,8 @@ namespace Customer
 
 		private IEnumerator ServeNextCustomer()
 		{
-			if (SpawnedCustomers.Count <= 0) {
+			if (SpawnedCustomers.Count <= 0)
+			{
 				SceneManager.LoadScene("YouWin2");
 				yield break;
 			}
@@ -147,7 +147,7 @@ namespace Customer
 			_currentCustomer.Greet();
 			CustomerGreeted?.Invoke(_currentCustomer);
 
-            yield return null;
+			yield return null;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using StateMachine.States;
 using UnityEngine;
 
 namespace Dialogue
@@ -6,49 +7,31 @@ namespace Dialogue
 	public class VendorDialogue : MonoBehaviour
 	{
 		[BoxGroup("References")]
-		[SerializeField] private SpeechBubble SpeechBubble;
-		[BoxGroup("References")]
-		[SerializeField] private GameObject VisualRoot;
-		[BoxGroup("References")]
 		[SerializeField] private SpriteRenderer VendorSprite;
 
-		[BoxGroup("Dialogue")]
-		[SerializeField] private string[] Lines;
-
-		public void Speak()
+		private void OnEnable()
 		{
-			Show();
-
-			if (SpeechBubble == null || Lines == null || Lines.Length == 0)
-				return;
-
-			string line = Lines[Random.Range(0, Lines.Length)];
-			SpeechBubble.SetText(line);
-			SpeechBubble.ShowText();
+			StateMachine.StateMachine.OnStateChanged += StateMachineOnOnStateChanged;
 		}
 
-		public void Show()
+		private void OnDisable()
 		{
-			if (VisualRoot != null)
-			{
-				VisualRoot.SetActive(true);
-			}
-			else if (VendorSprite != null)
-			{
-				VendorSprite.enabled = true;
-			}
+			StateMachine.StateMachine.OnStateChanged -= StateMachineOnOnStateChanged;
 		}
 
-		public void Hide()
+		private void StateMachineOnOnStateChanged(StateBase _, StateBase currentState)
 		{
-			SpeechBubble?.HideText();
-			if (VisualRoot != null)
+			switch (currentState)
 			{
-				VisualRoot.SetActive(false);
-			}
-			else if (VendorSprite != null)
-			{
-				VendorSprite.enabled = false;
+				case CraftingState:
+				case AfterCraftingState:
+					VendorSprite.enabled = false;
+					break;
+
+				case VendorDialogueState:
+				case CustomerDialogueState:
+					VendorSprite.enabled = true;
+					break;
 			}
 		}
 	}

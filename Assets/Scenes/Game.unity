@@ -330,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908597495174204528, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
       propertyPath: transitions.Array.data[1].sceneName
-      value: YouWin
+      value: YouWin2
       objectReference: {fileID: 0}
     - target: {fileID: 8908597495174204528, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
       propertyPath: transitions.Array.data[2].sceneName
@@ -924,17 +924,6 @@ MonoBehaviour:
   CaptureCamera: {fileID: 651736542}
   ContentRoot: {fileID: 554584374}
   Padding: 0.5
---- !u!114 &858266717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4658862943104696787, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
-  m_PrefabInstance: {fileID: 2063240399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fff8f9c9794b0794f6bba756e79b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue.SpeechBubble
 --- !u!1 &899406609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1817131074}
   - component: {fileID: 1817131073}
-  - component: {fileID: 1817131072}
+  - component: {fileID: 1817131075}
   m_Layer: 0
   m_Name: Vendor
   m_TagString: Untagged
@@ -1341,23 +1330,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1817131072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817131071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e50bf15c71394b3a85241f14303cdfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue.VendorDialogue
-  SpeechBubble: {fileID: 858266717}
-  VisualRoot: {fileID: 1817131071}
-  VendorSprite: {fileID: 0}
-  Lines:
-  - Howdy Demon!
 --- !u!212 &1817131073
 SpriteRenderer:
   serializedVersion: 2
@@ -1432,6 +1404,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1817131075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817131071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e50bf15c71394b3a85241f14303cdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue.VendorDialogue
+  VendorSprite: {fileID: 1817131073}
 --- !u!1 &1990404306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,135 +1728,171 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[12].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[13].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[14].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[15].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[16].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[17].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[18].Amount
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[19].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[20].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[21].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[22].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[23].Amount
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[24].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[25].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[26].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[27].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[28].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[29].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[30].Amount
-      value: 0
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[31].Amount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[32].Amount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[33].Amount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[34].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[35].Amount
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[36].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[37].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[38].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[39].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[40].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[41].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[42].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[43].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[44].Amount
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[45].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[46].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[47].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[48].Amount
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[49].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[50].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[51].Amount
-      value: 0
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[52].Amount
-      value: 0
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
+      propertyPath: MaskComponents.Array.data[53].Amount
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 581860768332815176, guid: c388a117abd1f944a89b7fd1dced18fa, type: 3}
       propertyPath: MaskComponents.Array.data[3].MaskComponent

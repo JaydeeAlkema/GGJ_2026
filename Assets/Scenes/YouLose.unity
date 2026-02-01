@@ -736,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908597495174204528, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
       propertyPath: transitions.Array.data[3].sceneName
-      value: YouWin
+      value: YouWin2
       objectReference: {fileID: 0}
     - target: {fileID: 8908597495174204528, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
       propertyPath: transitions.Array.data[0].keys.Array.size
