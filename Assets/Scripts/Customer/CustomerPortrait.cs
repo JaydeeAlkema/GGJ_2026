@@ -21,7 +21,7 @@ namespace Customer
 		private void OnEnable()
 		{
 			_scoreCalculator = new ScoreCalculator();
-			SpeechBubble.Hide();
+			SpeechBubble.HideText();
 		}
 
 		private void OnDisable()
@@ -33,22 +33,24 @@ namespace Customer
 		{
 			_scoreCalculator.ResetScore();
 			ScoreCalculator.ScoringResult result = _scoreCalculator.Calculate(_customerData, maskTraits);
-			SpeechBubble.Show();
+			SpeechBubble.HideText();
 			switch (result)
 			{
 				case ScoreCalculator.ScoringResult.Happy:
-					SpeechBubble.SetText(_customerData.GetRandomHappyResponseText());
+					SpeechBubble.SetEmotion(SpeechBubble.Emotion.Happy);
 					break;
 				case ScoreCalculator.ScoringResult.Neutral:
-					SpeechBubble.SetText(_customerData.GetRandomNeutralResponseText());
+					SpeechBubble.SetEmotion(SpeechBubble.Emotion.Neutral);
 					break;
 				case ScoreCalculator.ScoringResult.Angry:
-					SpeechBubble.SetText(_customerData.GetRandomAngryResponseText());
+					SpeechBubble.SetEmotion(SpeechBubble.Emotion.Angry);
 					break;
 				default:
-					SpeechBubble.SetText(_customerData.GetRandomNeutralResponseText());
+					SpeechBubble.SetEmotion(SpeechBubble.Emotion.Neutral);
 					break;
 			}
+
+			SpeechBubble.ShowBubble();
 		}
 
 		public void SetCustomerData(Customer customer)

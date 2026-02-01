@@ -44,6 +44,9 @@ namespace Customer
 		{
 			_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 			_scoreCalculator = new ScoreCalculator();
+
+			SpeechBubble.HideText();
+			SpeechBubble.HideBubble();
 		}
 
 		private void OnDisable()
@@ -116,37 +119,37 @@ namespace Customer
 		public void Hide()
 		{
 			_spriteRenderer.enabled = false;
-			SpeechBubble.Hide();
+			SpeechBubble.HideText();
+			SpeechBubble.HideBubble();
 		}
 
 		public void Show()
 		{
 			_spriteRenderer.enabled = true;
-			SpeechBubble.Show();
 		}
 
 		public void HideSpeechBubble()
 		{
-			SpeechBubble.Hide();
+			SpeechBubble.HideText();
 		}
 
 		public void ShowSpeechBubble()
 		{
-			SpeechBubble.Show();
+			SpeechBubble.ShowText();
 		}
 
 		public void Greet()
 		{
 			string greeting = GreetingText[Random.Range(0, GreetingText.Length)];
 			SpeechBubble.SetText(greeting);
-			SpeechBubble.Show();
+			SpeechBubble.ShowText();
 		}
 
 		public void Farewell()
 		{
 			string farewell = FarewellText[Random.Range(0, FarewellText.Length)];
 			SpeechBubble.SetText(farewell);
-			SpeechBubble.Show();
+			SpeechBubble.ShowText();
 		}
 	}
 }

@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e411e3a35cc40c19c0b9dbb278a1a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer.CustomerCraftingScoreBar
-  ScoreBoardEmpty: {fileID: 21300000, guid: 78954ac29c0f640d6bd4cdc8ad2117e5, type: 3}
+  ScoreBoardEmpty: {fileID: 21300000, guid: 6e1004ea4d8d346a1b6ceb15611c6c68, type: 3}
   ScoreBoardLow: {fileID: 21300000, guid: a82a337f3b0a84509b8cb803e42ac5da, type: 3}
   ScoreBoardMedium: {fileID: 21300000, guid: b849a0aa6f9cb442ebd4fe9967715d3e, type: 3}
   ScoreBoardHigh: {fileID: 21300000, guid: 54b9452993d3b4dc8b28adc8580c6c99, type: 3}
@@ -1300,6 +1300,10 @@ PrefabInstance:
     - target: {fileID: 1457785860508945043, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
       propertyPath: m_Name
       value: Speech Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655192158523281650, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.040000916
       objectReference: {fileID: 0}
     - target: {fileID: 5286683456187677198, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
       propertyPath: m_fontSize
