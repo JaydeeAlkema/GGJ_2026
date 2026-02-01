@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,20 +15,21 @@ namespace Mask
 
 		[BoxGroup("Mask")]
 		[SerializeField] private MaskTrait Trait;
-        [BoxGroup("Mask")]
-        [SerializeField] private MaskMaterial Material;
-        [BoxGroup("Mask")]
+		[BoxGroup("Mask")]
+		[SerializeField] private MaskMaterial Material;
+		[BoxGroup("Mask")]
 		[SerializeField] private MaskComponentType ComponentType;
 		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
 		[BoxGroup("Mask")]
 		[SerializeField] private float VisualsSize;
 
-        public SpriteRenderer GetSpriteRenderer()
-		{
-			return SpriteRenderer;
-		}
-
+		[BoxGroup("Audio")]
+		[SerializeField]
+		private EventReference s_Emotion;
+		[BoxGroup("Audio")]
+		[SerializeField]
+		private EventReference s_Select;
 		private bool _isLocked;
 		private bool _isDragging;
 
@@ -37,6 +39,7 @@ namespace Mask
 		private float _clampRight;
 
 		private float _scale = 1f;
+		private int _sortingOrder;
 
 		private InputSystem_Actions _inputs;
 		private Camera _camera;
@@ -60,7 +63,9 @@ namespace Mask
 			_inputs.Player.ChangeSpriteOrder.performed += OnChangeSpriteOrderPerformed;
 
 			_scale = this.transform.localScale.x;
-        }
+
+			_sortingOrder = SpriteRenderer.sortingOrder;
+		}
 
 		private void OnDisable()
 		{
@@ -106,9 +111,15 @@ namespace Mask
 			if (!_isDragging)
 				return;
 
-			int orderChange = (int)obj.ReadValue<float>();
-			orderChange = Mathf.Max(0, orderChange);
-			SpriteRenderer.sortingOrder += orderChange;
+			_sortingOrder += (int)obj.ReadValue<float>();
+			if (_sortingOrder <= 0)
+				_sortingOrder = 0;
+			SpriteRenderer.sortingOrder = _sortingOrder;
+		}
+
+		public SpriteRenderer GetSpriteRenderer()
+		{
+			return SpriteRenderer;
 		}
 
 		public void SetVisuals(Sprite sprite)
@@ -171,8 +182,10 @@ namespace Mask
 			if (_isLocked || _isDragging)
 				return;
 
-            // Convert mouse position into local space
-            Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);
+			AudioManager.Instance.PlaySound(s_Select, this.transform.position, "Material", Material.ToString());
+
+			// Convert mouse position into local space
+			Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);
 
 			_localGrabOffset = localMouse;
 			_isDragging = true;

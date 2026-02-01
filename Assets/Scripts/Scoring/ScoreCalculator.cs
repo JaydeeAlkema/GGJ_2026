@@ -1,6 +1,5 @@
 ﻿using System;
 using Mask;
-using UnityEngine;
 
 namespace Scoring
 {
@@ -44,9 +43,6 @@ namespace Scoring
 			{
 				_totalScore += score;
 			}
-
-			// For demonstration, just log the score
-			Debug.Log($"Customer Score: {score}");
 
 			switch (score)
 			{
