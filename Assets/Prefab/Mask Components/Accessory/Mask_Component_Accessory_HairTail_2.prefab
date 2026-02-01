@@ -9,12 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5621219007188229272, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
+      propertyPath: Trait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
       propertyPath: Visuals
       value: 
       objectReference: {fileID: 21300000, guid: 8f5ece04fe8127542910ba2220ac7bb2, type: 3}
     - target: {fileID: 6798845539155560195, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
       propertyPath: m_Name
-      value: Mask_Component_Accessory_HairTal_2
+      value: Mask_Component_Accessory_HairTail_2
       objectReference: {fileID: 0}
     - target: {fileID: 8942730724395853347, guid: 9b5b8ea418eb2cc4a84521d700daca25, type: 3}
       propertyPath: m_LocalPosition.x
