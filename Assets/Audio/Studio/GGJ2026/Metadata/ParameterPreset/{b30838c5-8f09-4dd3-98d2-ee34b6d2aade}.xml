@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="ParameterPreset" id="{b30838c5-8f09-4dd3-98d2-ee34b6d2aade}">
 		<property name="name">
-			<value>Emotions</value>
+			<value>Trait</value>
 		</property>
 		<relationship name="folder">
 			<destination>{7b22a647-1afe-4f50-be8c-84e4c006d164}</destination>
@@ -19,10 +19,10 @@
 			<value>5</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>default</value>
-			<value>Chaos</value>
-			<value>Charm</value>
-			<value>Fright</value>
+			<value>Default</value>
+			<value>Chaotic</value>
+			<value>Charming</value>
+			<value>Frightening</value>
 			<value>Tranquil</value>
 		</property>
 		<property name="initialValue">

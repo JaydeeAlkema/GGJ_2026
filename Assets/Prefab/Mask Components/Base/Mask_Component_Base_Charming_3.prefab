@@ -9,9 +9,53 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: Trait
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
       propertyPath: Visuals
       value: 
       objectReference: {fileID: 21300000, guid: 74151ef6dd11efb46914975478e93978, type: 3}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Select.Path
+      value: event:/SFX/Mask/Select
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Emotion.Path
+      value: event:/SFX/Mask/Reputation
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Select.Guid.Data1
+      value: 26366939
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Select.Guid.Data2
+      value: 1163444580
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Select.Guid.Data3
+      value: -2026039885
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Select.Guid.Data4
+      value: -123284661
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Emotion.Guid.Data1
+      value: 53055011
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Emotion.Guid.Data2
+      value: 1120846291
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Emotion.Guid.Data3
+      value: -957219964
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: s_Emotion.Guid.Data4
+      value: 2006111113
+      objectReference: {fileID: 0}
     - target: {fileID: 6798845539155560195, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
       propertyPath: m_Name
       value: Mask_Component_Base_Charming_3

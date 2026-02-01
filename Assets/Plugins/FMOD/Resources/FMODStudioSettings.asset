@@ -393,7 +393,7 @@ MonoBehaviour:
   sourceProjectPath: Assets/Audio/FMOD Studio/Drum and Blast.fspro
   sourceBankPath: Assets/Audio/Banks
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 0
   AutomaticEventLoading: 1
   BankLoadType: 0

@@ -139,9 +139,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mask.MaskComponent
   SpriteRenderer: {fileID: 4271610455949990925}
   Trait: 3
+  Material: 0
   ComponentType: 0
   Visuals: {fileID: 21300000, guid: ed60e0fef31e8e44cb99c91ce4bb89ed, type: 3}
   VisualsSize: 0.15
+  s_Emotion:
+    Guid:
+      Data1: 53055011
+      Data2: 1120846291
+      Data3: -957219964
+      Data4: 2006111113
+    Path: event:/SFX/Mask/Reputation
+  s_Select:
+    Guid:
+      Data1: 26366939
+      Data2: 1163444580
+      Data3: -2026039885
+      Data4: -123284661
+    Path: event:/SFX/Mask/Select
 --- !u!61 &4538012321536544852
 BoxCollider2D:
   m_ObjectHideFlags: 0

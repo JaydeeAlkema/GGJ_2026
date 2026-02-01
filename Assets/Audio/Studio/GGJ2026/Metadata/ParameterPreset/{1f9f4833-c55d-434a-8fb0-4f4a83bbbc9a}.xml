@@ -19,7 +19,7 @@
 			<value>6</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>default</value>
+			<value>Default</value>
 			<value>Diamond</value>
 			<value>Glass</value>
 			<value>Grass</value>

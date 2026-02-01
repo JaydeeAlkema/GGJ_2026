@@ -14,14 +14,21 @@ namespace Mask
 
 		[BoxGroup("Mask")]
 		[SerializeField] private MaskTrait Trait;
-		[BoxGroup("Mask")]
+        [BoxGroup("Mask")]
+        [SerializeField] private MaskMaterial Material;
+        [BoxGroup("Mask")]
 		[SerializeField] private MaskComponentType ComponentType;
 		[BoxGroup("Mask")]
 		[SerializeField] private Sprite Visuals;
 		[BoxGroup("Mask")]
 		[SerializeField] private float VisualsSize;
 
-		public SpriteRenderer GetSpriteRenderer()
+		[BoxGroup("Audio")]
+		[SerializeField] FMODUnity.EventReference s_Emotion; 
+		[BoxGroup("Audio")]
+        [SerializeField] FMODUnity.EventReference s_Select;
+
+        public SpriteRenderer GetSpriteRenderer()
 		{
 			return SpriteRenderer;
 		}
@@ -58,7 +65,7 @@ namespace Mask
 			_inputs.Player.ChangeSpriteOrder.performed += OnChangeSpriteOrderPerformed;
 
 			_scale = this.transform.localScale.x;
-		}
+        }
 
 		private void OnDisable()
 		{
@@ -168,9 +175,11 @@ namespace Mask
 		{
 			if (_isLocked || _isDragging)
 				return;
+			
+			AudioManager.Instance.PlaySound(s_Select, transform.position, "Material", Material.ToString());
 
-			// Convert mouse position into local space
-			Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);
+            // Convert mouse position into local space
+            Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);
 
 			_localGrabOffset = localMouse;
 			_isDragging = true;

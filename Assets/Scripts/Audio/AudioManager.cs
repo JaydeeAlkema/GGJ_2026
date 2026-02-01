@@ -101,10 +101,65 @@ public class AudioManager : MonoBehaviour {
 
     public void PlaySound(EventReference sfx) => RuntimeManager.PlayOneShot(sfx);
 
-    public void PlayInstance(EventInstance instance, GameObject obj) {
-        RuntimeManager.AttachInstanceToGameObject(instance, obj);
-        instance.start();
-        instance.release();
+    public void PlaySound(
+    EventReference sfx,
+    Vector3 eventPosition,
+
+    string customSheet1 = null,
+    float customSheetIntensity1 = 0,
+
+    string customSheet2 = null,
+    float customSheetIntensity2 = 0,
+
+    string customSheet3 = null,
+    float customSheetIntensity3 = 0,
+
+    string customSheet4 = null,
+    float customSheetIntensity4 = 0
+    ) {
+        if (!sfx.IsNull) {
+            EventInstance instance = CreateInstance(sfx, eventPosition);
+
+            if (customSheet1 != null) instance.setParameterByName(customSheet1, customSheetIntensity1);
+            if (customSheet2 != null) instance.setParameterByName(customSheet2, customSheetIntensity2);
+            if (customSheet3 != null) instance.setParameterByName(customSheet3, customSheetIntensity3);
+            if (customSheet4 != null) instance.setParameterByName(customSheet4, customSheetIntensity4);
+
+            instance.start();
+            instance.release();
+        }
+
+        else Debug.Log("Audio source missing");
+    }
+
+    public void PlaySound(
+    EventReference sfx,
+    Vector3 eventPosition,
+
+    string customSheet1 = null,
+    string customSheetState1 = "",
+
+    string customSheet2 = null,
+    string customSheetState2 = "",
+
+    string customSheet3 = null,
+    string customSheetState3 = "",
+
+    string customSheet4 = null,
+    string customSheetState4 = ""
+    ) {
+        if (!sfx.IsNull) {
+            EventInstance instance = CreateInstance(sfx, eventPosition);
+
+            if (customSheet1 != null) instance.setParameterByNameWithLabel(customSheet1, customSheetState1);
+            if (customSheet2 != null) instance.setParameterByNameWithLabel(customSheet2, customSheetState2);
+            if (customSheet3 != null) instance.setParameterByNameWithLabel(customSheet3, customSheetState3);
+            if (customSheet4 != null) instance.setParameterByNameWithLabel(customSheet4, customSheetState4);
+
+            instance.start();
+        }
+
+        else Debug.Log("Audio source missing");
     }
 
     public EventInstance PlayInstance(EventReference sound, GameObject obj) {
@@ -118,8 +173,42 @@ public class AudioManager : MonoBehaviour {
     EventReference sfx,
     Vector3 eventPosition,
 
-    string customSheet = null,
-    float customSheetIntensity = 0,
+    string customSheet1 = null,
+    string customSheetState1 = "",
+
+    string customSheet2 = null,
+    string customSheetState2 = "",
+
+    string customSheet3 = null,
+    string customSheetState3 = "",
+
+    string customSheet4 = null,
+    string customSheetState4 = ""
+    ) {
+        if (!sfx.IsNull) {
+            EventInstance instance = CreateInstance(sfx, eventPosition);
+
+            if (customSheet1 != null) instance.setParameterByNameWithLabel(customSheet1, customSheetState1);
+            if (customSheet2 != null) instance.setParameterByNameWithLabel(customSheet2, customSheetState2);
+            if (customSheet3 != null) instance.setParameterByNameWithLabel(customSheet3, customSheetState3);
+            if (customSheet4 != null) instance.setParameterByNameWithLabel(customSheet4, customSheetState4);
+
+            instance.start();
+            return instance;
+        }
+
+        else {
+            Debug.Log("Audio source missing");
+            return default;
+        }
+    }
+
+    public EventInstance PlayInstance(
+    EventReference sfx,
+    Vector3 eventPosition,
+
+    string customSheet1 = null,
+    float customSheetIntensity1 = 0,
 
     string customSheet2 = null,
     float customSheetIntensity2 = 0,
@@ -133,13 +222,12 @@ public class AudioManager : MonoBehaviour {
         if (!sfx.IsNull) {
             EventInstance instance = CreateInstance(sfx, eventPosition);
 
-            if (customSheet != null) instance.setParameterByName(customSheet, customSheetIntensity);
+            if (customSheet1 != null) instance.setParameterByName(customSheet1, customSheetIntensity1);
             if (customSheet2 != null) instance.setParameterByName(customSheet2, customSheetIntensity2);
             if (customSheet3 != null) instance.setParameterByName(customSheet3, customSheetIntensity3);
             if (customSheet4 != null) instance.setParameterByName(customSheet4, customSheetIntensity4);
 
             instance.start();
-            instance.release();
             return instance;
         }
 
@@ -148,7 +236,6 @@ public class AudioManager : MonoBehaviour {
             return default;
         }
     }
-
 
     public EventInstance CreateInstance(EventReference audio, Vector3 eventPosition) {
         if (audio.IsNull) Debug.Log("Audio source missing: " + audio.Path);
@@ -198,11 +285,6 @@ public class AudioManager : MonoBehaviour {
 
         InitializeBusses();
         InitializeVolumeSettings();
-    }
-
-    private void Start() {
-        RuntimeManager.StudioSystem.setParameterByName("Chaos", 0.5f);
-        RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0.5f);
     }
 
     /*
