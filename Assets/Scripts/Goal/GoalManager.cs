@@ -12,13 +12,31 @@ namespace Goal
 		[BoxGroup("References")]
 		[SerializeField] private Image GoalProgressBar;
 
+		[BoxGroup("References")]
+		[SerializeField] private CutsceneManager CutsceneManager;
+
 		private int _currentGold;
+
+		private void OnEnable()
+		{
+			SetBarFilledAmount();
+		}
 
 		public void AddGold(int amount)
 		{
 			_currentGold += amount;
-			_currentGold = Mathf.Min(_currentGold, TotalGoldRequired);
-			Debug.Log($"Current Gold: {_currentGold}/{TotalGoldRequired}");
+			SetBarFilledAmount();
+
+			if (!IsGoalAchieved())
+				return;
+
+			CutsceneManager.TransitionToScene("YouWin");
+		}
+
+		private void SetBarFilledAmount()
+		{
+			float fillAmount = _currentGold / (float)TotalGoldRequired;
+			GoalProgressBar.fillAmount = fillAmount;
 		}
 
 		public bool IsGoalAchieved()

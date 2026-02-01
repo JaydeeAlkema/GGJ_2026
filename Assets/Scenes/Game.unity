@@ -373,6 +373,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+--- !u!114 &399590078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8908597495174204528, guid: 5e3d8493e2007490c84a2fd258681e15, type: 3}
+  m_PrefabInstance: {fileID: 399590077}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29649e8a234c548798749cf2282af79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!114 &458844625 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2829569817666903449, guid: 086b055692024854885aca620024405f, type: 3}
@@ -1244,14 +1255,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92740ca228c144faabf22c7102e138ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer.CustomerQueueManager
-  CustomersToSpawn: 5
-  DistanceBetweenCustomers: 4.5
+  CustomersToSpawn: 10
+  DistanceBetweenCustomers: 4
   CustomerPrefabs:
   - {fileID: 1447815768109098823, guid: f1820149dafc90742aa24aee146ca45c, type: 3}
   - {fileID: 6420478423009435880, guid: a1854150c80dab148b0e1e717e2c1376, type: 3}
   - {fileID: 4088392273343761189, guid: abeda5c0f99c39645a3aa7f714bd4929, type: 3}
   - {fileID: 5953831189256960980, guid: 7dcd7183b2199ca47b31e3fa618a0729, type: 3}
   SpawnPoint: {fileID: 361933220}
+  CutsceneManager: {fileID: 399590078}
   SpawnedCustomers: []
 --- !u!4 &1663575376
 Transform:
@@ -1346,6 +1358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Goal.GoalManager
   TotalGoldRequired: 100
   GoalProgressBar: {fileID: 1852345050159832910}
+  CutsceneManager: {fileID: 399590078}
 --- !u!224 &2009499069 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2031351590324984650, guid: 086b055692024854885aca620024405f, type: 3}
@@ -1463,6 +1476,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2829569817666903449, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: GoalManager
+      value: 
+      objectReference: {fileID: 1990404308}
     - target: {fileID: 6757479720436866082, guid: 086b055692024854885aca620024405f, type: 3}
       propertyPath: m_Name
       value: Crafting Screen
@@ -1924,6 +1941,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1232039402}
     m_Modifications:
+    - target: {fileID: 6288558728084755393, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288558728084755393, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8237179931245882731, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
       propertyPath: m_Name
       value: Client Screen

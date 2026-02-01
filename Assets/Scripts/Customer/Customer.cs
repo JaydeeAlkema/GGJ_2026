@@ -100,7 +100,7 @@ namespace Customer
 			maskSpriteRenderer.sprite = maskItem.GetSprite();
 			maskSpriteRenderer.sortingOrder = 10; // Ensure it's rendered above the customer
 			maskObject.transform.SetParent(MaskDisplayPoint, false);
-			maskObject.transform.localScale = Vector3.one * 0.17f; // Scale down the mask to fit the display point
+			maskObject.transform.localScale = Vector3.one * 0.19f; // Scale down the mask to fit the display point
 		}
 
 		public void CalculateScore()

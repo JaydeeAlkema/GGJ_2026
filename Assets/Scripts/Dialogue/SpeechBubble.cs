@@ -51,14 +51,12 @@ namespace Dialogue
 
 		public void ShowText()
 		{
-			Debug.Log("Showing text: " + _text);
 			DialogueText.gameObject.SetActive(true);
 			DialogueTextBackground.gameObject.SetActive(true);
 		}
 
 		public void HideText()
 		{
-			Debug.Log("Hiding text: " + _text);
 			DialogueText.gameObject.SetActive(false);
 			DialogueTextBackground.gameObject.SetActive(false);
 		}

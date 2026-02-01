@@ -208,6 +208,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Speech Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 2958151288768042959, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655192158523281650, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1.2597
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655192158523281650, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.9693
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655192158523281650, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.1834
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286683456187677198, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
+      propertyPath: m_fontSize
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 7531612638267837023, guid: a8032b8ab36d2dd45a0f257daedf8a9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

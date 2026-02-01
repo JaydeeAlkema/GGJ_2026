@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CompletedMask;
 using NaughtyAttributes;
 using StateMachine.States;
@@ -22,6 +23,8 @@ namespace Customer
 		[SerializeField] private Customer[] CustomerPrefabs;
 		[BoxGroup("References")]
 		[SerializeField] private Transform SpawnPoint;
+		[BoxGroup("References")]
+		[SerializeField] private CutsceneManager CutsceneManager;
 
 		[BoxGroup("Readonly")]
 		[ReadOnly]
@@ -119,11 +122,19 @@ namespace Customer
 				Destroy(_currentCustomer.gameObject);
 				SpawnedCustomers.RemoveAt(0);
 
-				// Move all the customers to the left by the amount they are separated by. We dont animate this for now.
-				// They just snap into place.
-				foreach (Customer customer in SpawnedCustomers)
+				if (SpawnedCustomers.Any())
 				{
-					customer.transform.position = new Vector3(customer.transform.position.x - DistanceBetweenCustomers, customer.transform.position.y, customer.transform.position.z);
+					// Move all the customers to the left by the amount they are separated by. We dont animate this for now.
+					// They just snap into place.
+					foreach (Customer customer in SpawnedCustomers)
+					{
+						customer.transform.position = new Vector3(customer.transform.position.x - DistanceBetweenCustomers, customer.transform.position.y, customer.transform.position.z);
+					}
+				}
+				else
+				{
+					CutsceneManager.TransitionToScene("YouLose");
+					yield break;
 				}
 			}
 

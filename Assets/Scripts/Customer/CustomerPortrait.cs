@@ -22,6 +22,7 @@ namespace Customer
 		{
 			_scoreCalculator = new ScoreCalculator();
 			SpeechBubble.HideText();
+			SpeechBubble.HideBubble();
 		}
 
 		private void OnDisable()
