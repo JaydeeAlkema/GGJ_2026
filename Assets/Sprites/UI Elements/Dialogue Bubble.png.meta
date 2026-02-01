@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6e1004ea4d8d346a1b6ceb15611c6c68
+guid: d50efe4b87395bc4eb8554aa3db01a9d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4722266281514642963
-    second: Customer Satisfaction Meter Empty_0
+      213: 6252592200758746575
+    second: Dialogue Bubble_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Customer Satisfaction Meter Empty_0
+      name: Dialogue Bubble_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 757
-        height: 1102
+        width: 1038
+        height: 421
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de1d38b26d3277eb0800000000000000
-      internalID: -4722266281514642963
+      spriteID: fcd5a9b9a7ba5c650800000000000000
+      internalID: 6252592200758746575
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Customer Satisfaction Meter Empty_0: -4722266281514642963
+      Dialogue Bubble_0: 6252592200758746575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
