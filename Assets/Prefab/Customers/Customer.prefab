@@ -141,18 +141,30 @@ MonoBehaviour:
   SpeechBubble: {fileID: 1042747201328452263}
   MaskDisplayPoint: {fileID: 1393589871762515007}
   GreetingText:
-  - Hello
+  - Hello.
+  - I require a mask.
+  - Are mortals really not able to tell the difference?
+  - "Your masks must be quite effective! I can\u2019t even tell who you are."
+  - "By Asmodeus! Quite the collection you have here! Let\u2019s see\u2026"
+  - "Hmm\u2026 I\u2019ve seen better."
   FarewellText:
   - Goodbye
   HappyResponseText:
-  - Me Happy
+  - Hm, I like that one!
+  - That looks nice.
+  - Truly the work of a master!
+  - Splendid detailing!
   NeutralResponseText:
   - Meh
   AngryResponseText:
-  - Me Angry
+  - "Eh, I don\u2019t know about that one."
+  - Maybe something else would fit better?
+  - "I\u2019m not wearing that in public."
+  - Why do you even keep something like this in your inventory? Ew.
   PreferredTraits: 01000000
   NeutralTraits: 02000000
   DislikedTraits: 04000000
+  DialogueBoxSprite: {fileID: 0}
 --- !u!1 &8085679998908223902
 GameObject:
   m_ObjectHideFlags: 0
