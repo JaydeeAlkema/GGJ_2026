@@ -160,7 +160,7 @@ namespace Crafting
 
 				CustomerSatisfactionBar.SetScoreBarVisualsDependingOnTraits(maskTraits, currentCustomer);
 			}
-			else if (currentState is VendorDialogueState && previousState is AfterCraftingState)
+			else if (currentState is CustomerDialogueState && previousState is AfterCraftingState)
 			{
 				if (_maskSnapshotter == null)
 					return;

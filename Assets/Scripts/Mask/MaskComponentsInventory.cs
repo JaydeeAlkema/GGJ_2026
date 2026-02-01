@@ -35,6 +35,12 @@ namespace Mask
 			MaskComponentDatabaseEntry foundComponent = MaskComponents.Find(item => item.MaskComponent.name == nameToFindSanitized);
 			if (foundComponent != null)
 			{
+				if (foundComponent.Amount < 0)
+				{
+					OnMaskComponentsChanged?.Invoke();
+					return;
+				}
+
 				foundComponent.Amount++;
 				OnMaskComponentsChanged?.Invoke();
 				return;
@@ -61,6 +67,9 @@ namespace Mask
 			string nameToFindSanitized = nameToFind.Replace("(Clone)", "").Trim();
 			MaskComponentDatabaseEntry foundComponent = MaskComponents.Find(item => item.MaskComponent.name == nameToFindSanitized);
 			if (foundComponent == null)
+				return;
+
+			if (foundComponent.Amount < 0)
 				return;
 
 			foundComponent.Amount--;

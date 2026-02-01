@@ -26,7 +26,7 @@ namespace Mask
 			_inputs.Player.Click.performed += OnClickStarted;
 			_inputs.Player.Click.canceled += OnClickCanceled;
 
-			// _inputs.Player.Remove.performed += OnRemovePerformed;
+			_inputs.Player.Remove.performed += OnRemovePerformed;
 		}
 
 		private void OnDisable()
@@ -34,7 +34,7 @@ namespace Mask
 			_inputs.Player.Click.performed -= OnClickStarted;
 			_inputs.Player.Click.canceled -= OnClickCanceled;
 
-			// _inputs.Player.Remove.performed -= OnRemovePerformed;
+			_inputs.Player.Remove.performed -= OnRemovePerformed;
 
 			_inputs.Player.Disable();
 		}
