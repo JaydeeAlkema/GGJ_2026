@@ -151,7 +151,7 @@ MonoBehaviour:
       Data2: 1234066334
       Data3: -964293192
       Data4: -2024621393
-    Path: event:/Ambient/Atmosphere/Ambience
+    Path: event:/Ambient/Ambience
 --- !u!114 &6235703687137602878
 MonoBehaviour:
   m_ObjectHideFlags: 0

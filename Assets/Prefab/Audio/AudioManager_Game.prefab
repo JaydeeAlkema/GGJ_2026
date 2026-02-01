@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5275576315324157808}
   - component: {fileID: 1218493501219735799}
   - component: {fileID: 4924473845141371479}
-  - component: {fileID: 6680095047102975710}
   m_Layer: 0
   m_Name: AmbientPlayer
   m_TagString: Untagged
@@ -49,11 +48,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1730454804
-      Data2: 1209931844
-      Data3: -1883028846
-      Data4: -1430082158
-    Path: event:/Ambient/Fire
+      Data1: -495038189
+      Data2: 1136691701
+      Data3: -576705617
+      Data4: 283389841
+    Path: event:/Music/Beatbox
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -80,11 +79,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -2016410528
-      Data2: 1303205768
-      Data3: 2051339180
-      Data4: -324282083
-    Path: event:/Ambient/Trait
+      Data1: 124680351
+      Data2: 1128079611
+      Data3: 81963408
+      Data4: 1244497950
+    Path: event:/Music/Melody
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -96,23 +95,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &6680095047102975710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6078086769910171550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f041d1e48abb442ac4293d7e56d97f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  chaotic: 0.85
-  charming: 0
-  frightening: 0
-  tranquil: 0
-  reverb: -1
 --- !u!1 &7485134191570691880
 GameObject:
   m_ObjectHideFlags: 0
