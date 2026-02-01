@@ -128,12 +128,6 @@ namespace Crafting
 			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
 			CustomerQueueManager.SetCurrentCustomerMaskItem(completedMaskItem);
 
-			// Find all the components in the database, and remove them from the database.
-			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
-			{
-				MaskComponentsInventory.Instance.RemoveMaskComponent(component);
-			}
-
 			Cleanup();
 		}
 
