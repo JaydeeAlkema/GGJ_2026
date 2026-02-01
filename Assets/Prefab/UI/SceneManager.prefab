@@ -96,6 +96,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackImage
       objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: playOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: s_Klang.Path
+      value: event:/SFX/Misc/Klang
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: s_Klang.Guid.Data1
+      value: -1554152792
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: s_Klang.Guid.Data2
+      value: 1240359301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: s_Klang.Guid.Data3
+      value: -1821718144
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051439341074818786, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
+      propertyPath: s_Klang.Guid.Data4
+      value: -1736507176
+      objectReference: {fileID: 0}
     - target: {fileID: 8947097843412400720, guid: 54d2c46dabfd24787ad12ac77745b9ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0251
