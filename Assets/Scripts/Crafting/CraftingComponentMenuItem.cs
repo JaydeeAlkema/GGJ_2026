@@ -13,10 +13,16 @@ namespace Crafting
 
 		[BoxGroup("References")]
 		[SerializeField] private Image ComponentImage;
+
 		[BoxGroup("References")]
-		[SerializeField] private Image ComponentTraitImage;
+		[SerializeField] private GameObject TraitImageContainer;
 		[BoxGroup("References")]
-		[SerializeField] private TextMeshProUGUI ComponentCountText;
+		[SerializeField] private Image TraitImage;
+
+		[BoxGroup("References")]
+		[SerializeField] private GameObject AmountTextContainer;
+		[BoxGroup("References")]
+		[SerializeField] private TextMeshProUGUI AmountText;
 
 		[Space]
 		[BoxGroup("References")]
@@ -45,17 +51,24 @@ namespace Crafting
 			OnComponentMenuItemClicked?.Invoke(_maskComponentPrefab);
 		}
 
+		public MaskTrait GetMaskTrait()
+		{
+			return _maskComponentPrefab.GetMaskTraits();
+		}
+
 		public void Initialize(MaskComponent prefab, int amount)
 		{
 			_maskComponentPrefab = prefab;
 			ComponentImage.sprite = prefab.GetVisuals();
 
 			bool componentIsBase = prefab.GetMaskComponentType() is MaskComponentType.Base;
-			ComponentTraitImage.enabled = !componentIsBase;
-			ComponentCountText.enabled = !componentIsBase;
+			TraitImageContainer.SetActive(!componentIsBase);
+			TraitImage.enabled = !componentIsBase;
+			AmountTextContainer.SetActive(!componentIsBase);
+			AmountText.enabled = !componentIsBase;
 
-			ComponentTraitImage.sprite = TraitIconsDatabase.GetIconForTrait(prefab.GetMaskTraits());
-			ComponentCountText.text = amount.ToString();
+			TraitImage.sprite = TraitIconsDatabase.GetIconForTrait(prefab.GetMaskTraits());
+			AmountText.text = amount.ToString();
 		}
 	}
 }

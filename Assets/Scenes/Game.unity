@@ -557,6 +557,7 @@ MonoBehaviour:
   ClampLeft: -4.7555556
   ClampRight: 4.7555556
   CustomerQueueManager: {fileID: 1663575375}
+  CustomerPortrait: {fileID: 651769281568114185}
 --- !u!1 &611064569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer.CustomerQueueManager
   CustomersToSpawn: 5
-  DistanceBetweenCustomers: 2.5
+  DistanceBetweenCustomers: 4.5
   CustomerPrefabs:
   - {fileID: 1447815768109098823, guid: f1820149dafc90742aa24aee146ca45c, type: 3}
   - {fileID: 6420478423009435880, guid: a1854150c80dab148b0e1e717e2c1376, type: 3}
@@ -1125,6 +1126,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1232039402}
     m_Modifications:
+    - target: {fileID: 1170462369826084473, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1840
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336197123872289744, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336197123872289744, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510759284533809815, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510759284533809815, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510759284533809815, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -17
+      objectReference: {fileID: 0}
     - target: {fileID: 2031351590324984650, guid: 086b055692024854885aca620024405f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1209,11 +1234,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crafting Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 6757479720436866082, guid: 086b055692024854885aca620024405f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086b055692024854885aca620024405f, type: 3}
+--- !u!114 &651769281568114185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4944171119002671392, guid: 086b055692024854885aca620024405f, type: 3}
+  m_PrefabInstance: {fileID: 651769281568114184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb48b52180b4c76ae4bfda251c22650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Customer.CustomerPortrait
 --- !u!1001 &1710664748374003033
 PrefabInstance:
   m_ObjectHideFlags: 0

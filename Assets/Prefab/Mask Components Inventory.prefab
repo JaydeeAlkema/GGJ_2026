@@ -95,25 +95,25 @@ MonoBehaviour:
     Amount: -1
   - MaskComponent: {fileID: 3416332344566984218, guid: 5e3ebd34f4411e94fa8838cf47172c6c, type: 3}
     ComponentType: 1
-    Amount: 2
+    Amount: 1
   - MaskComponent: {fileID: 3262778809643548866, guid: 7c7b2555db72ebb4cb76cc752b8b0dc1, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 119365917805120521, guid: 1cf0dca96eab20941a5b841257fe8f2d, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 7127945455504074508, guid: 5036d72175339084e868cbc5f1b2e1b4, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 4954705093332364858, guid: 094f8547bfc1b9e408f92ce9c923ca4f, type: 3}
     ComponentType: 1
-    Amount: 3
+    Amount: 0
   - MaskComponent: {fileID: 1993068671688940309, guid: 225076d57ad1f0442a25c1d887e8d784, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 4650942471424142129, guid: 6b186a91d0dcddd478349dda3f240126, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 8667845891378775440, guid: 4581a254e63a96d43a2212eb8fec02a5, type: 3}
     ComponentType: 1
     Amount: 0
@@ -122,19 +122,19 @@ MonoBehaviour:
     Amount: 0
   - MaskComponent: {fileID: 5264274241342128417, guid: 7d3a9e92309923f498a66d91ce425dfb, type: 3}
     ComponentType: 1
-    Amount: 1
+    Amount: 0
   - MaskComponent: {fileID: 3006083185756021437, guid: 234c2171f7a8a4b4f82926675be9e16b, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 7998911846149303942, guid: ac1c9eb9d18b70c4d980c4350fa90a7d, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 7998573714049207636, guid: c945a9ddfc0bdd048ba6f34dde16675a, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 3743343646953833612, guid: 6b32059263a16fb479dd331d10b38c71, type: 3}
     ComponentType: 1
-    Amount: 2
+    Amount: 0
   - MaskComponent: {fileID: 7275215083907809405, guid: 8d8b3a8a6ff6b17498212c089a218323, type: 3}
     ComponentType: 1
     Amount: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
     Amount: 0
   - MaskComponent: {fileID: 8842988030634726779, guid: e281d49ade08bbf478fea18677cb269f, type: 3}
     ComponentType: 1
-    Amount: 2
+    Amount: 0
   - MaskComponent: {fileID: 2868980835813354721, guid: e6e1c2d1d8d985c49a3d57bcf5304b4e, type: 3}
     ComponentType: 1
     Amount: 0
@@ -176,13 +176,13 @@ MonoBehaviour:
     Amount: 0
   - MaskComponent: {fileID: 2870999815077595689, guid: af74f05dfb6e35e44a04b08a494be989, type: 3}
     ComponentType: 1
-    Amount: 1
+    Amount: 0
   - MaskComponent: {fileID: 8774957105264271050, guid: 61419135a803f4742b556c52cf31cac0, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 2254382242894879332, guid: 4140c625fe1005142b2743b6481fd027, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 6422645830113128864, guid: 2943780f8f05d274d9c8d60b30084e97, type: 3}
     ComponentType: 1
     Amount: 0
@@ -197,13 +197,13 @@ MonoBehaviour:
     Amount: 0
   - MaskComponent: {fileID: 1737894869162407593, guid: bdab4ebd0f29b3745a94987a0911bd0f, type: 3}
     ComponentType: 1
-    Amount: 1
+    Amount: 0
   - MaskComponent: {fileID: 8261784136368726598, guid: 41ca08991c0ba96468d0196a88b23851, type: 3}
     ComponentType: 1
     Amount: 0
   - MaskComponent: {fileID: 4348401618454557064, guid: f6538b15a16b5514886a29bfe63725e2, type: 3}
     ComponentType: 1
-    Amount: 0
+    Amount: 1
   - MaskComponent: {fileID: 120668863921358988, guid: d3cacb7697e3fe44a88ccd6572200651, type: 3}
     ComponentType: 1
     Amount: 0
