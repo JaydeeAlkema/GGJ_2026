@@ -29,6 +29,9 @@ namespace StateMachine
 				{
 					StateId.Crafting, new CraftingState()
 				},
+				{
+					StateId.AfterCrafting, new AfterCraftingState()
+				},
 			};
 		}
 

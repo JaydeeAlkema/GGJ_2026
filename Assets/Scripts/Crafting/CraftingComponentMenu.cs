@@ -4,7 +4,6 @@ using System.Linq;
 using Mask;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Crafting
 {
@@ -17,8 +16,6 @@ namespace Crafting
 		[SerializeField] private CraftingComponentMenuItem CraftingComponentMenuItemPrefab;
 		[BoxGroup("References")]
 		[SerializeField] private Transform MenuContentParent;
-		[BoxGroup("References")]
-		[SerializeField] private Button SubmitButton;
 
 		private int _craftingStageIndex;
 
@@ -101,8 +98,12 @@ namespace Crafting
 			DepopulateMenu();
 			PopulateMenu();
 
+			Debug.Log("Crafting Stage Index: " + _craftingStageIndex);
+
 			if (maskComponents.Any())
 				return;
+
+			Debug.Log("Mask Completed!");
 
 			OnMaskCompleted?.Invoke();
 			_craftingStageIndex = 0;

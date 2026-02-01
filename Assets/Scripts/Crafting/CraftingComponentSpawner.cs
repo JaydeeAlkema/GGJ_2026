@@ -8,6 +8,7 @@ using NaughtyAttributes;
 using Snapshotter;
 using StateMachine.States;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Crafting
 {
@@ -52,6 +53,12 @@ namespace Crafting
 		[SerializeField] private CustomerQueueManager CustomerQueueManager;
 		[BoxGroup("References")]
 		[SerializeField] private CustomerPortrait CustomerPortrait;
+		[BoxGroup("References")]
+		[SerializeField] private CustomerSatisfactionBar CustomerSatisfactionBar;
+
+		[Space]
+		[BoxGroup("References")]
+		[SerializeField] private Button SubmitButton;
 
 		private readonly List<MaskComponent> _spawnedComponents = new();
 		private MaskSnapshotter _maskSnapshotter;
@@ -67,7 +74,6 @@ namespace Crafting
 			UpdateClampArea();
 
 			CraftingComponentMenuItem.OnComponentMenuItemClicked += CraftingComponentMenuItem_OnComponentMenuItemClicked;
-			CraftingComponentMenu.OnMaskCompleted += CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged += CraftingComponentMenu_OnCraftingStageChanged;
 			MaskComponent.OnMaskComponentRemoveRequested += MaskComponent_OnMaskComponentRemoveRequested;
 
@@ -77,9 +83,7 @@ namespace Crafting
 		private void OnDisable()
 		{
 			CraftingComponentMenuItem.OnComponentMenuItemClicked -= CraftingComponentMenuItem_OnComponentMenuItemClicked;
-			CraftingComponentMenu.OnMaskCompleted -= CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged -= CraftingComponentMenu_OnCraftingStageChanged;
-
 			MaskComponent.OnMaskComponentRemoveRequested -= MaskComponent_OnMaskComponentRemoveRequested;
 
 			StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
@@ -106,6 +110,7 @@ namespace Crafting
 			newComponent.SetClampArea(ClampTop, ClampBottom, ClampLeft, ClampRight);
 			_spawnedComponents.Add(newComponent);
 
+			SubmitButton.interactable = true;
 			if (newComponent.GetMaskComponentType() is MaskComponentType.Base)
 				return;
 
@@ -125,25 +130,8 @@ namespace Crafting
 			{
 				component.Lock();
 			}
-		}
 
-		private void CraftingComponentMenu_OnMaskCompleted()
-		{
-			if (_maskSnapshotter == null)
-				return;
-
-			List<MaskTrait> maskTraits = new(
-				_spawnedComponents
-					.Where(x => x != null)
-					.Select(x => x.GetMaskTraits())
-					.ToList()
-			);
-
-			Sprite snapshotSprite = _maskSnapshotter.Snapshot();
-			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
-			CustomerQueueManager.SetCurrentCustomerMaskItem(completedMaskItem);
-
-			Cleanup();
+			SubmitButton.interactable = false;
 		}
 
 		private void MaskComponent_OnMaskComponentRemoveRequested(MaskComponent component)
@@ -155,13 +143,40 @@ namespace Crafting
 
 		private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
 		{
-			switch (currentState)
+			Customer.Customer currentCustomer = CustomerQueueManager.GetCurrentCustomer();
+			if (currentState is CraftingState)
 			{
-				case CraftingState:
-					Customer.Customer currentCustomer = CustomerQueueManager.GetCurrentCustomer();
-					Debug.Log("Setting customer portrait for: " + currentCustomer.name);
-					CustomerPortrait.SetCustomerData(currentCustomer);
-					break;
+				CustomerPortrait.SetCustomerData(currentCustomer);
+				SubmitButton.interactable = false;
+			}
+			else if (currentState is AfterCraftingState && previousState is CraftingState)
+			{
+				List<MaskTrait> maskTraits = new(
+					_spawnedComponents
+						.Where(x => x != null)
+						.Select(x => x.GetMaskTraits())
+						.ToList()
+				);
+
+				CustomerSatisfactionBar.SetScoreBarVisualsDependingOnTraits(maskTraits, currentCustomer);
+			}
+			else if (currentState is VendorDialogueState && previousState is AfterCraftingState)
+			{
+				if (_maskSnapshotter == null)
+					return;
+
+				List<MaskTrait> maskTraits = new(
+					_spawnedComponents
+						.Where(x => x != null)
+						.Select(x => x.GetMaskTraits())
+						.ToList()
+				);
+
+				Sprite snapshotSprite = _maskSnapshotter.Snapshot();
+				CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
+				CustomerQueueManager.SetCurrentCustomerMaskItem(completedMaskItem);
+
+				Cleanup();
 			}
 		}
 
