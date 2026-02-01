@@ -6,6 +6,7 @@ using Customer;
 using Mask;
 using NaughtyAttributes;
 using Snapshotter;
+using StateMachine.States;
 using UnityEngine;
 
 namespace Crafting
@@ -49,6 +50,8 @@ namespace Crafting
 
 		[BoxGroup("References")]
 		[SerializeField] private CustomerQueueManager CustomerQueueManager;
+		[BoxGroup("References")]
+		[SerializeField] private CustomerPortrait CustomerPortrait;
 
 		private readonly List<MaskComponent> _spawnedComponents = new();
 		private MaskSnapshotter _maskSnapshotter;
@@ -67,6 +70,8 @@ namespace Crafting
 			CraftingComponentMenu.OnMaskCompleted += CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged += CraftingComponentMenu_OnCraftingStageChanged;
 			MaskComponent.OnMaskComponentRemoveRequested += MaskComponent_OnMaskComponentRemoveRequested;
+
+			StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
 		}
 
 		private void OnDisable()
@@ -74,6 +79,10 @@ namespace Crafting
 			CraftingComponentMenuItem.OnComponentMenuItemClicked -= CraftingComponentMenuItem_OnComponentMenuItemClicked;
 			CraftingComponentMenu.OnMaskCompleted -= CraftingComponentMenu_OnMaskCompleted;
 			CraftingComponentMenu.OnCraftingStageChanged -= CraftingComponentMenu_OnCraftingStageChanged;
+
+			MaskComponent.OnMaskComponentRemoveRequested -= MaskComponent_OnMaskComponentRemoveRequested;
+
+			StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
 
 			Cleanup();
 		}
@@ -99,6 +108,12 @@ namespace Crafting
 
 			if (newComponent.GetMaskComponentType() is MaskComponentType.Base)
 				return;
+
+			List<MaskTrait> maskTraits = new()
+			{
+				newComponent.GetMaskTraits(),
+			};
+			CustomerPortrait.Calculate(maskTraits.ToArray());
 
 			MaskComponentsInventory.Instance.RemoveMaskComponent(componentPrefab);
 			OnSpawnedComponentChanged?.Invoke(newComponent);
@@ -128,12 +143,6 @@ namespace Crafting
 			CompletedMaskItem completedMaskItem = new(snapshotSprite, maskTraits);
 			CustomerQueueManager.SetCurrentCustomerMaskItem(completedMaskItem);
 
-			// Find all the components in the database, and remove them from the database.
-			foreach (MaskComponent component in _spawnedComponents.Where(c => c != null))
-			{
-				MaskComponentsInventory.Instance.RemoveMaskComponent(component);
-			}
-
 			Cleanup();
 		}
 
@@ -142,6 +151,18 @@ namespace Crafting
 			MaskComponentsInventory.Instance.AddMaskComponent(component);
 			_spawnedComponents.Remove(component);
 			Destroy(component.gameObject);
+		}
+
+		private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
+		{
+			switch (currentState)
+			{
+				case CraftingState:
+					Customer.Customer currentCustomer = CustomerQueueManager.GetCurrentCustomer();
+					Debug.Log("Setting customer portrait for: " + currentCustomer.name);
+					CustomerPortrait.SetCustomerData(currentCustomer);
+					break;
+			}
 		}
 
 		private void UpdateClampArea()

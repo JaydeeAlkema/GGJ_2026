@@ -2,6 +2,7 @@
 using Dialogue;
 using Mask;
 using NaughtyAttributes;
+using Scoring;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,12 +33,58 @@ namespace Customer
 		[BoxGroup("Traits")]
 		[SerializeField] private MaskTrait[] DislikedTraits;
 
+		[BoxGroup("UI")]
+		[SerializeField] private Sprite DialogueBoxSprite;
+
 		private SpriteRenderer _spriteRenderer;
 		private CompletedMaskItem _currentMaskItem;
+		private ScoreCalculator _scoreCalculator;
 
 		private void OnEnable()
 		{
 			_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+			_scoreCalculator = new ScoreCalculator();
+		}
+
+		private void OnDisable()
+		{
+			_spriteRenderer = null;
+			_scoreCalculator = null;
+		}
+
+		public MaskTrait[] GetPreferredTraits()
+		{
+			return PreferredTraits;
+		}
+
+		public MaskTrait[] GetNeutralTraits()
+		{
+			return NeutralTraits;
+		}
+
+		public MaskTrait[] GetDislikedTraits()
+		{
+			return DislikedTraits;
+		}
+
+		public Sprite GetDialogueBoxSprite()
+		{
+			return DialogueBoxSprite;
+		}
+
+		public string GetRandomHappyResponseText()
+		{
+			return HappyResponseText[Random.Range(0, HappyResponseText.Length)];
+		}
+
+		public string GetRandomNeutralResponseText()
+		{
+			return NeutralResponseText[Random.Range(0, NeutralResponseText.Length)];
+		}
+
+		public string GetRandomAngryResponseText()
+		{
+			return AngryResponseText[Random.Range(0, AngryResponseText.Length)];
 		}
 
 		public void SetCurrentMaskItem(CompletedMaskItem maskItem)
@@ -51,6 +98,19 @@ namespace Customer
 			maskSpriteRenderer.sortingOrder = 10; // Ensure it's rendered above the customer
 			maskObject.transform.SetParent(MaskDisplayPoint, false);
 			maskObject.transform.localScale = Vector3.one * 0.25f; // Scale down the mask to fit the display point
+		}
+
+		public void CalculateScore()
+		{
+			MaskTrait[] traits = _currentMaskItem.GetMaskTraits().ToArray();
+			ScoreCalculator.ScoringResult result = _scoreCalculator.Calculate(this, traits);
+			string response = result switch
+			{
+				ScoreCalculator.ScoringResult.Happy => HappyResponseText[Random.Range(0, HappyResponseText.Length)],
+				ScoreCalculator.ScoringResult.Neutral => NeutralResponseText[Random.Range(0, NeutralResponseText.Length)],
+				ScoreCalculator.ScoringResult.Angry => AngryResponseText[Random.Range(0, AngryResponseText.Length)],
+				_ => "",
+			};
 		}
 
 		public void Hide()
