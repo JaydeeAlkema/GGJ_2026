@@ -16,7 +16,6 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Testing")]
     [SerializeField] private EventReference test;
-    EventInstance i_test;
 
     #region Singleton Logic
 
@@ -202,9 +201,8 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Start() {
-        i_test = PlayInstance(test, transform.position);
-        RuntimeManager.StudioSystem.setParameterByName("Charm", 0.1f);
-        RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0.1f);
+        RuntimeManager.StudioSystem.setParameterByName("Chaos", 0.5f);
+        RuntimeManager.StudioSystem.setParameterByName("Tranquil", 0.5f);
     }
 
     /*
