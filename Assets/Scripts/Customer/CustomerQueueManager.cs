@@ -5,6 +5,7 @@ using CompletedMask;
 using NaughtyAttributes;
 using StateMachine.States;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Customer
@@ -35,17 +36,15 @@ namespace Customer
 			SpawnCustomers();
 		}
 
-		private void OnEnable()
-		{
-			StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
-		}
+        private void OnEnable() {
+            StateMachine.StateMachine.OnStateChanged += StateMachine_OnStateChanged;
+        }
 
-		private void OnDisable()
-		{
-			StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
-		}
+        private void OnDisable() {
+            StateMachine.StateMachine.OnStateChanged -= StateMachine_OnStateChanged;
+        }
 
-		private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
+        private void StateMachine_OnStateChanged(StateBase previousState, StateBase currentState)
 		{
 			switch (currentState)
 			{
@@ -107,8 +106,10 @@ namespace Customer
 
 		private IEnumerator ServeNextCustomer()
 		{
-			if (SpawnedCustomers.Count == 0)
+			if (SpawnedCustomers.Count <= 0) {
+				SceneManager.LoadScene("YouWin2");
 				yield break;
+			}
 
 			if (_currentCustomer)
 			{
@@ -125,7 +126,7 @@ namespace Customer
 			_currentCustomer.Greet();
 			CustomerGreeted?.Invoke(_currentCustomer);
 
-			yield return null;
+            yield return null;
 		}
 	}
 }
