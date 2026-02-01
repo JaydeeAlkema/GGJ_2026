@@ -176,7 +176,7 @@ namespace Mask
 			if (_isLocked || _isDragging)
 				return;
 			
-			AudioManager.Instance.PlaySound(s_Select, transform.position, "Material", Material.ToString());
+			AudioManager.Instance.PlaySound(s_Select, this.transform.position, "Material", Material.ToString());
 
             // Convert mouse position into local space
             Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);
