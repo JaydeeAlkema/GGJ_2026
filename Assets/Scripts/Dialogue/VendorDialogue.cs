@@ -24,7 +24,7 @@ namespace Dialogue
 
 			string line = Lines[Random.Range(0, Lines.Length)];
 			SpeechBubble.SetText(line);
-			SpeechBubble.Show();
+			SpeechBubble.ShowText();
 		}
 
 		public void Show()
@@ -41,7 +41,7 @@ namespace Dialogue
 
 		public void Hide()
 		{
-			SpeechBubble?.Hide();
+			SpeechBubble?.HideText();
 			if (VisualRoot != null)
 			{
 				VisualRoot.SetActive(false);
