@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mask.MaskComponent
   SpriteRenderer: {fileID: 4271610455949990925}
-  Trait: 3
+  Trait: 0
   Material: 0
   ComponentType: 0
   Visuals: {fileID: 21300000, guid: ed60e0fef31e8e44cb99c91ce4bb89ed, type: 3}

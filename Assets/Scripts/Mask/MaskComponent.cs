@@ -23,11 +23,6 @@ namespace Mask
 		[BoxGroup("Mask")]
 		[SerializeField] private float VisualsSize;
 
-		[BoxGroup("Audio")]
-		[SerializeField] FMODUnity.EventReference s_Emotion; 
-		[BoxGroup("Audio")]
-        [SerializeField] FMODUnity.EventReference s_Select;
-
         public SpriteRenderer GetSpriteRenderer()
 		{
 			return SpriteRenderer;
@@ -175,8 +170,6 @@ namespace Mask
 		{
 			if (_isLocked || _isDragging)
 				return;
-			
-			AudioManager.Instance.PlaySound(s_Select, this.transform.position, "Material", Material.ToString());
 
             // Convert mouse position into local space
             Vector3 localMouse = this.transform.InverseTransformPoint(mouseWorldPosition);

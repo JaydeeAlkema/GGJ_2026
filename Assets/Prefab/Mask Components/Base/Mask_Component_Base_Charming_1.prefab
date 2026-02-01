@@ -17,6 +17,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ed60e0fef31e8e44cb99c91ce4bb89ed, type: 3}
     - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
+      propertyPath: Material
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5621219007188229272, guid: 06ad95c49820e6b4ba82fe4d86d5b383, type: 3}
       propertyPath: s_Select.Path
       value: event:/SFX/Mask/Select
       objectReference: {fileID: 0}

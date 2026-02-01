@@ -16,6 +16,7 @@
         Metal = 2,
         Diamond = 3,
         Grass = 4,
+		Wood = 5
     }
 
 }

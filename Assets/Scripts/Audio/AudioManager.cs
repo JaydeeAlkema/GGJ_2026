@@ -237,7 +237,6 @@ public class AudioManager : MonoBehaviour {
     }
 
     public EventInstance CreateInstance(EventReference audio, Vector3 eventPosition) {
-        if (audio.IsNull) Debug.Log("Audio source missing: " + audio.Path);
         EventInstance instance = RuntimeManager.CreateInstance(audio);
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(eventPosition));
         return instance;
