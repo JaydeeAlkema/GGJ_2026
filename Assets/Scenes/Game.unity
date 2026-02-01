@@ -686,6 +686,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635923619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2504279798637209055, guid: 086b055692024854885aca620024405f, type: 3}
+  m_PrefabInstance: {fileID: 651769281568114184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fff8f9c9794b0794f6bba756e79b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue.SpeechBubble
 --- !u!1 &651736539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1427,119 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2bfc9b93fd888f498ac5465e8b52caf, type: 3}
+--- !u!1001 &5938161691904575289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: SpeechBubble
+      value: 
+      objectReference: {fileID: 635923619}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: MaskDisplayPoint
+      value: 
+      objectReference: {fileID: 1393589871762515007, guid: bc2e366620d03244d9441bcb82fb1e24, type: 3}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: GreetingText.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'GreetingText.Array.data[0]'
+      value: Your satisfaction, our eternal focus.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'GreetingText.Array.data[1]'
+      value: Be whoever you want to be! Demon, angel, and anything in-between.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'GreetingText.Array.data[2]'
+      value: Mask the ugliest horns, with premium porcelain.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'GreetingText.Array.data[3]'
+      value: Fame may be expensive, but anonymity, my friend, is priceless!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'GreetingText.Array.data[4]'
+      value: Customize your mask for a heavenly fit!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: AngryResponseText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: HappyResponseText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'AngryResponseText.Array.data[0]'
+      value: "Damn it! I have no more components. Fate favors the Heavens once again\u2026
+        But one day I will return."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'AngryResponseText.Array.data[1]'
+      value: "Puny profits! Can\u2019t enact my revenge with only this much. I must
+        reconsider my plans. Fate favors the Heavens once again\u2026 But one day
+        I will return."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132820935750953885, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: 'HappyResponseText.Array.data[0]'
+      value: "That\u2019s plenty! I have enough souls now. Back to the forge tonight,
+        for the Heavens will fall tomorrow."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.61275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.27829
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253038239018791001, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456037828572446904, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
+      propertyPath: m_Name
+      value: Vendor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a15e84334e3026242ba1701b1e8e0607, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1433,3 +1557,4 @@ SceneRoots:
   - {fileID: 611064571}
   - {fileID: 1710664748374003033}
   - {fileID: 399590077}
+  - {fileID: 5938161691904575289}
